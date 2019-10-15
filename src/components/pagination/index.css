@@ -1,14 +1,17 @@
+:root {
+    --by-pagination-round-bg-color: #D8D8D8;
+    --by-pagination-round-bg-color-active: #F06787;
+}
+
 .by-wrapper-pagination {
     display: flex;
     align-items: center;
 }
 
-.by-wrapper-pagination {
-    
-}
+.by-wrapper-pagination {}
 
 .by-pagination-round {
-    background-color: #D8D8D8;
+    background-color: var(--by-pagination-round-bg-color);
     width: 10px;
     height: 10px;
     border-radius: 10px;
@@ -16,6 +19,14 @@
 }
 
 .by-pagination-round-active {
+    background-color: var(--by-pagination-round-bg-color-active);
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    margin: 0 1em 0 0;
+}
+
+.by-pagination-round-active.with-number {
     display: flex;
     align-items: center;
     justify-content: center;

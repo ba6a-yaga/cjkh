@@ -9,14 +9,14 @@ import Arrow from '../../components/arrow';
 class MainBanner extends React.Component {
     state = {
         currentBanner : 0,
-        count: 1,
+        count : this.props.list.length,
         userAgent: window.navigator.userAgent,
     }
-    nextImage() {
-      console.log(this)
-            this.setState({
-                currentBanner: (this.state.currentBanner + 1) % this.state.count
-            })
+    
+    changeBanner(offset) {
+        this.setState({
+            currentBanner: (this.state.currentBanner + offset + this.state.count) % this.state.count
+        })
     }
     render() {
         let list = this.props.list
@@ -24,7 +24,7 @@ class MainBanner extends React.Component {
         return(
           <div className={`by-main-banner ${ this.props.className }`}>
             <div className="by-main-banner-container">
-              <Pagination count={list.length} active={this.state.currentBanner} />
+              <Pagination count={list.length} active={this.state.currentBanner + 1} hideNumber={true}/>
               <div className="by-main-banner-desc by-switch-anim-container">
                 {list.map((item, index)=> 
                   <TextBlock 
@@ -51,13 +51,13 @@ class MainBanner extends React.Component {
               <div className="by-main-banner-arrows">
 
                 <aside className="by-main-banner-btn left">
-                    <Button onClick={this.prevImage}>
+                    <Button onClick={() => { this.changeBanner(-1) }}>
                         <Arrow iconInvert={false} color="#FF4D77" width={22} height={14} />
                     </Button>
                 </aside>
 
                 <aside className="by-main-banner-mini-btn right">
-                    <Button onClick={this.nextImage}>
+                    <Button onClick={() => { this.changeBanner(1) }}>
                         <Arrow iconInvert={true} color="#FF4D77" width={22} height={14} />
                     </Button>
                 </aside>
@@ -78,7 +78,6 @@ class MainBanner extends React.Component {
               
               <div className="by-main-banner-title by-switch-anim-container">
                 {list.map((item, index)=> 
-                
                   <div key={index}  className={`by-main-banner-top-view by-switch-anim ${index === this.state.currentBanner ? "by-current" : undefined}` }>
                     <div className="by-main-banner-info">
                     {item.characteristics.map((l, i) => 

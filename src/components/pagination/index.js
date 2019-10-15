@@ -18,7 +18,9 @@ class Pagination extends React.Component {
             <this.Repeat num={count}>
                 {(i) => 
                     this.props.active === i+1?
-                        <span key={i} className="by-pagination-round-active">{i+1}</span>
+                        <span key={i} className={`by-pagination-round-active ${this.props.hideNumber ? 'no-number' : ''} `}>
+                            {this.props.hideNumber ? undefined:<span className="by-pagination-round-number">{i+1}</span>}
+                        </span>
                         :
                         <span key={i} className="by-pagination-round"></span>
                 }

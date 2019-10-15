@@ -3,8 +3,12 @@
   padding-bottom: var(--large-margin);
   background: #f6f6f6;
   margin-right: -100px;
+  margin-top: var(--medium-margin);
   .by-main-banner-container {
     background: #fff;
+  }
+  .by-main-banner-desc {
+    margin-right: var(--medium-margin);
   }
   .by-main-banner-image-main {
     padding-right: 50px;
@@ -32,6 +36,7 @@
     justify-self: flex-end;
     padding-right: 20px;
     p {
+      color: var(--primary-color-text);
       margin: 0;
       font-size: 12px;
       align-self: center;
@@ -89,18 +94,18 @@
     grid-column: 1;
     transition: opacity 0.5s, transform 0.5s;
     opacity: 0;
-    // animation: hideAnim 1s forwards;
-    //z-index:1;
+    animation: hideAnim 1s forwards;
+    z-index: 1;
     // transform: translate3d(-0px, 0, 0) scale(0.95);
     transition-delay: 0s;
     &.by-current {
       transition-delay: 0.5s;
-      // -webkit-animation: changeAnim 1s forwards;
-      // animation: changeAnim 1s;
+      -webkit-animation: changeAnim 1s forwards;
+      animation: changeAnim 1s;
       opacity: 1;
       touch-action: unset;
-      //z-index:2;
-      // transform: translate3d(0, 0px, 0)  scale(1);
+      z-index: 2;
+      // transform: translate3d(0, 0px, 0) scale(1);
     }
   }
 }
