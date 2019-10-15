@@ -1,0 +1,57 @@
+.by-btn {
+  display: flex;
+  width: var(--by-btn-width);
+  height: var(--by-btn-height);
+  background-color: var(--by-btn-bg-color);
+  border-radius: var(--by-btn-radius);
+  font-size: var(--by-btn-font-size);
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  transition: background 0.6s;
+}
+
+.by-btn p {
+  margin: 0 0.5em 0 0.5em;
+  color: var(--by-btn-font-color);
+}
+
+.by-btn *+* {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.by-btn:hover {
+  background: var(--by-btn-bg-color-hover) radial-gradient(circle, transparent 1%, var(--by-btn-bg-color-hover) 1%) center/15000%;
+}
+
+.by-btn:active {
+  background-color: var(--by-btn-bg-color-active);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.by-btn .by-arrow {
+  transition: color 0.25s;
+  color: var(--by-btn-fill-color);
+}
+
+.by-btn .by-arrow {
+  transition: color 0.25s;
+  color: var(--by-btn-fill-color);
+}
+
+.by-btn:hover .by-arrow {
+  color: var(--by-btn-fill-color-hover);
+}
+
+.by-btn:hover .by-arrow {
+  color: var(--by-btn-fill-color-hover);
+}
+
+.by-btn:active .by-arrow {
+  color: var(--by-btn-fill-color-active);
+}
+
+.by-btn:active .by-arrow {
+  color: var(--by-btn-fill-color-active);
+}

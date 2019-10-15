@@ -1,0 +1,28 @@
+:root {
+  --by-info-block-grid-gap: 8px 17px;
+}
+.by-info-block {
+  display: grid;
+  grid-gap: var(--by-info-block-grid-gap);
+
+  align-content: flex-start;
+  justify-content: flex-start;
+
+  img {
+    grid-row: 1 / span 4;
+    grid-column: 1;
+  }
+  .by-title-text {
+    margin: 0;
+    grid-column: 2;
+  }
+  .by-subtitle-text {
+    grid-column: 2;
+  }
+  .by-more-text {
+    grid-column: 2;
+  }
+  .by-description-text {
+    grid-column: 2;
+  }
+}

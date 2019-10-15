@@ -1,0 +1,30 @@
+.by-wrapper-pagination {
+    display: flex;
+    align-items: center;
+}
+
+.by-wrapper-pagination {
+    
+}
+
+.by-pagination-round {
+    background-color: #D8D8D8;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    margin: 0 1em 0 0;
+}
+
+.by-pagination-round-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F06787;
+    color: white;
+    font-size: 1.25em;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin: 0 .5rem 0 -0.5rem;
+    padding: .125rem .125rem 0 0;
+}
