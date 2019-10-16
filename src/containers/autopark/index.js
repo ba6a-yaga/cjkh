@@ -7,8 +7,30 @@ import LabeledValue from '../../components/labeledValue';
 import Arrow from '../../components/arrow';
 import Consult from '../../components/consult';
 class Autopark extends React.Component {
+    videoPlayerRef = React.createRef();
+    state ={
+      videoPlaying:false
+    }
+    getButtonPlayIcon() {
+      return this.state.videoPlaying ? <span className="icon-pause"></span> : <span className="icon-play"></span>
+    }
     expand = () => {
       
+    }
+    onVideoEnded = () => {
+      this.setState({videoPlaying:false})
+    }
+    componentDidMount = () =>  {
+      this.videoPlayerRef.current.addEventListener("ended", this.onVideoEnded)
+    }
+    playVideo = () => {
+      if (this.state.videoPlaying) {
+        this.setState({videoPlaying:false})
+        this.videoPlayerRef.current.pause()
+      } else {
+        this.videoPlayerRef.current.play()
+        this.setState({videoPlaying:true})
+      }
     }
     render() {
         let data = this.props.data
@@ -21,16 +43,15 @@ class Autopark extends React.Component {
               </div>
             </div>
             <div className="by-autopark-video-container">
-              <video
+              <video 
+                ref={this.videoPlayerRef}
                 className="by-autopark-video"
-                autoPlay
                 playsInline
-                loop
               >
                 <source src={data.video.src} />
               </video>
               <div className="by-autopark-video-info">
-                <Button className="by-autopark-play-button"><span className="icon-play"></span></Button>
+                <Button className="by-autopark-play-button" onClick={this.playVideo.bind(this)}>{this.getButtonPlayIcon()}</Button>
                 <strong className="by-autopark-video-title">{data.video.title}</strong>
                 <span className="by-autopark-video-desc">{data.video.desc}</span>
               </div>

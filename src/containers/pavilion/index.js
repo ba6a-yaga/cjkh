@@ -9,7 +9,7 @@ class Pavilion extends React.Component {
         <section className={`App-pavilion ${ this.props.className }`}>
           <MasonryLayout className="by-pavilion-masonry">
             {data.list.map((item, index) => 
-              <TextOnImage text={item.title} image={item.image}/>
+              <TextOnImage key={index} text={item.title} image={item.image}/>
             )}
           </MasonryLayout>
           <div className="by-pavilion-info">
