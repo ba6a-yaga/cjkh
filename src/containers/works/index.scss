@@ -1,0 +1,45 @@
+.App-works {
+  background: var(--secondary-bg);
+  margin-right: -100px;
+  .App-works-art {
+    background: var(--primary-bg);
+    padding-top: var(--medium-margin);
+    margin-left: -100px;
+    img {
+      min-height: 716px;
+      object-fit: cover;
+    }
+  }
+
+  .App-works-info {
+    display: grid;
+    align-self: center;
+    grid-column: 2 / span 2;
+    padding-left: var(--medium-margin);
+    // padding-right: var(--medium-margin);
+    grid-template-columns: 1fr 320px;
+    .by-title-text {
+      grid-column: 1 / span 1;
+      font-size: var(--title-font-size);
+      font-weight: bold;
+      color: var(--primary-color-title);
+    }
+    .by-description-text {
+      grid-column: 1;
+      grid-row: 2;
+      font-size: var(--desc-font-size);
+      color: var(--primary-color-text);
+      font-weight: normal;
+      margin-right: var(--medium-margin);
+    }
+  }
+
+  .App-works-consult {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    align-content: flex-start;
+    align-self: stretch;
+    background: var(--secondary-bg);
+  }
+}

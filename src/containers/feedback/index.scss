@@ -1,0 +1,29 @@
+@import "../../settings.scss";
+.App-feedback {
+  padding-top: var(--large-margin);
+  padding-bottom: 10.75rem;
+  position: relative;
+  &::before {
+    @extend %bg-left;
+  }
+  .by-slider-contrainer {
+    grid-column: 1 / span 3;
+  }
+  .App-title-with-divider {
+    display: grid;
+    grid-template-columns: 336px 1fr;
+    grid-column: 1 / span 3;
+    border-bottom: 2px solid #000;
+    margin-right: -100px;
+    .by-wrapper-pagination {
+      grid-column: 2;
+      justify-self: flex-end;
+      :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .by-wrapper-slider {
+    margin-top: var(--medium-margin);
+  }
+}

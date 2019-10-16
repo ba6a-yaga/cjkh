@@ -1,0 +1,17 @@
+.App-pavilion {
+  padding-top: var(--large-margin);
+  padding-bottom: 10.75rem;
+  .by-pavilion-info {
+    margin-top: var(--medium-margin);
+    margin-left: 98px;
+    display: grid;
+    grid-template-columns: 442px 1fr;
+    grid-gap: 55px;
+    .by-title-text {
+      margin: 0;
+    }
+    .by-description-text {
+      text-align: justify;
+    }
+  }
+}

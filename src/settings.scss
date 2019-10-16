@@ -1,0 +1,11 @@
+%bg-left {
+  background-color: var(--primary-bg);
+  content: "";
+  width: 442px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+  display: block;
+}

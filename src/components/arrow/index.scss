@@ -1,0 +1,12 @@
+.by-arrow {
+  color: var(--primary-color-text-alternative);
+  font-size: 9px;
+  .by-icon-arrow-right {
+    transform: rotate(180deg);
+  }
+  &.icon-arrow-left {
+    &:before {
+      width: 31px;
+    }
+  }
+}

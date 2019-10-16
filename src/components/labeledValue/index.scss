@@ -1,0 +1,26 @@
+:root {
+  --by-label-value-title-font-size: 0.75rem;
+  --by-label-value-title-color: var(--primary-color-title);
+
+  --by-label-value-text-font-size: 0.875rem;
+  --by-label-value-text-color: var(--primary-color-text-alternative);
+}
+
+.by-labeled-value {
+  display: grid;
+  grid-gap: 0.3rem;
+  text-align: center;
+
+  .by-labeled-value-title {
+    color: var(--by-label-value-title-color);
+    font-size: var(--by-label-value-title-font-size);
+  }
+
+  .by-labeled-value-text {
+    color: var(--by-label-value-text-color);
+    font-size: var(--by-label-value-text-font-size);
+  }
+}
+// <div className={`by-labeled-value ${ props.className }`}>
+//   <span className={`by-labeled-value-title`}>{props.title}</span>
+//   <span className={`by-labeled-value-text`}>{props.value}</span>
