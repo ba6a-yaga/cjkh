@@ -15,6 +15,7 @@
     transition: opacity 0.25s;
     background-color: #58595a;
     opacity: 1;
+    z-index: 0;
   }
   .by-text {
     display: block;
@@ -32,6 +33,7 @@
     background-color: #58595a;
     align-self: stretch;
     justify-self: stretch;
+    z-index: 1;
   }
   &:hover {
     .by-text {
