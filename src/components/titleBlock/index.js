@@ -2,7 +2,10 @@ import React from "react";
 import './index.css'
 
 const TitleBlock = props => (
-    <h1 className={`by-titleblock-text ${ props.className }`}>{props.text}</h1>
+    <div className={`by-title-block ${ props.className }`}>
+        <h1 className="by-titleblock-text">{props.text}</h1>
+        {props.children}
+    </div>
 );
 
 export default TitleBlock;

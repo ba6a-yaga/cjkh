@@ -3,7 +3,7 @@ import './index.scss'
 import Button from "../button";
 
 const InfoBlock = props => (
-  <div className="by-info-block">
+  <div className={`by-info-block ${ props.className ? props.className :'' }`}>
       {props.image ? <img src={props.image.src} alt={props.image.alt} />: null}
       {props.title ? <h1 className="by-title-text" dangerouslySetInnerHTML={{__html:props.title}} ></h1>: null}
       {props.subtitle ? <div className="by-subtitle-text" dangerouslySetInnerHTML={{__html:props.subtitle}} ></div>: null}

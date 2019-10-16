@@ -17,12 +17,18 @@ import InfoBlock from './components/infoBlock';
 import CarouselMediaObject from './components/carouselMediaObject';
 import Slider from './components/slider';
 import Pagination from './components/pagination';
+
 import Footer from './components/footer';
 import Wrapper from './components/wrapper';
+import Works from './containers/works';
+import Feedback from './containers/feedback';
+import Autopark from './containers/autopark';
+import Pavilion from './containers/pavilion';
+import News from './containers/news';
 function App() {
   return (
     <div className="App">
-    <Wrapper>
+    <Wrapper className="light-bg header-wrapper">
       <header className="App-header">
         <div className="App-logo">
           <Logo />
@@ -31,7 +37,7 @@ function App() {
           <MainMenu items={data.main.menu} />
         </div>
         
-        <div className="App-header-social-icons">
+        <div className="App-social-icons App-header-social-icons">
           {data.main.social.map((item, i) => 
             <IconSocial key={i} social={item.icon} href={item.link} title={item.name}/>
           )}
@@ -39,41 +45,22 @@ function App() {
       </header>
     </Wrapper>
        
-    <Wrapper>
-      <main className="App-main">
-        <MainBanner className="App-main-layout" list={data.main.banners}></MainBanner>
-        <section className="App-works App-main-layout">
-          <div className="App-works-art">
-              <img src={data.main.works.image.src} alt={data.main.works.image.alt} />
-          </div>
-          <div className="App-works-info">
-              <TextBlock title={data.main.works.title} desc={data.main.works.desc} ></TextBlock>
-          </div>
-          <div className="App-works-consult">
-              <Consult title={data.main.consult.title} button={data.main.consult.button.title} ></Consult>
-          </div>
-        </section>
-        
-        <section className="App-feedback">
-          <TitleBlock className="App-title-with-divider" text={data.main.feedback.title}><Pagination /></TitleBlock>
-          <Slider elementsCount={data.main.feedback.list.length} current>
-            {data.main.feedback.list.map((item, index) => 
-              <InfoBlock 
-                className="App-info-block" 
-                image={item.image} 
-                title={item.title} 
-                desc={item.desc} 
-                more={item.place} 
-                subtitle={item.position} 
-                key={index} 
-
-              ></InfoBlock>
-            )}
-          </Slider>
-        </section>
-      </main>
-     </Wrapper> 
-      <Footer></Footer>
+    
+    <main className="App-main">
+      <Wrapper><MainBanner className="App-main-layout" list={data.main.banners}></MainBanner></Wrapper>
+      <Wrapper><Works className="App-main-layout App-main-layout-left-extend" data={data.main.works} consult={data.main.consult}></Works></Wrapper>
+      <Wrapper><Feedback className="App-main-layout" data={data.main.feedback} colorize={true} roundImage={true}></Feedback></Wrapper>
+      <Wrapper><Autopark className="App-main-layout" data={data.main.auto} consult={data.main.consult}></Autopark></Wrapper>
+      <Wrapper><Feedback className="App-main-layout" data={data.main.partners}></Feedback></Wrapper>
+      <Wrapper className="light-bg header-wrapper">
+        <Pavilion  data={data.main.pavilion}></Pavilion>
+      </Wrapper>
+      <Wrapper className="dark-bg header-wrapper">
+        <News data={data.main.news} social={data.main.social} consult={data.main.consult}></News>
+      </Wrapper>
+      
+    </main>
+    <Footer></Footer>
     </div>
   );
 }

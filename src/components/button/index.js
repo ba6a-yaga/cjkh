@@ -19,7 +19,8 @@ class Button extends React.Component {
         }
 
         return(
-            <button className="by-btn" onClick={this.handler}>
+            <button className={`by-btn ${this.props.bordered ? "by-btn-bordered":''} ${this.props.className ? this.props.className : '' }`}
+                    onClick={this.handler}>
                 {iconFloat === "left"? this.props.children : ''}
                 {this.props.text !== undefined? <p>{this.props.text}</p> : null}
                 {iconFloat === "right"? this.props.children : ''}

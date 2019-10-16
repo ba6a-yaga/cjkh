@@ -1,0 +1,45 @@
+.by-text-on-image {
+  display: grid;
+  align-self: stretch;
+  justify-self: stretch;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  img {
+    align-self: stretch;
+    justify-self: stretch;
+    grid-row: 1;
+    grid-column: 1;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.25s;
+    background-color: #58595a;
+    opacity: 1;
+  }
+  .by-text {
+    display: block;
+    color: #fff;
+    opacity: 0;
+    margin: 0;
+    padding: 30px 26px 27px 40px;
+    align-self: flex-start;
+    grid-row: 1;
+    grid-column: 1;
+    line-height: 1.375rem;
+    font-weight: 300;
+    font-size: 0.875rem;
+    transition: opacity 0.25s, background-color 0.25s;
+    background-color: #58595a;
+    align-self: stretch;
+    justify-self: stretch;
+  }
+  &:hover {
+    .by-text {
+      opacity: 1;
+      background-color: #58595acc;
+    }
+    img {
+      opacity: 0.2;
+    }
+  }
+}

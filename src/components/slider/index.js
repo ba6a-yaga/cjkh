@@ -3,6 +3,7 @@ import './index.scss';
 import IconArrow from '../iconArrow'
 import Button from '../button'
 import Pagination from '../pagination'
+import Arrow from '../arrow';
 
 class Slider extends React.Component {
 
@@ -125,23 +126,29 @@ class Slider extends React.Component {
 
         return(
             <aside className="by-wrapper-slider">
-                <aside className="by-slider-mini-btn left">
-                    <Button onClick={this.prevImage}>
-                        <IconArrow iconInvert={true} color="#FF4D77" width={22} height={14} />
-                    </Button>
-                </aside>
-                <aside className="by-slider-mini-btn right">
-                    <Button onClick={this.nextImage}>
-                        <IconArrow iconInvert={false} color="#FF4D77" width={22} height={14} />
-                    </Button>
+                
+                <aside className="by-slider-buttons">
+                    <aside className="by-slider-mini-btn left">
+                        <Button onClick={this.prevImage}>
+                            <Arrow iconInvert={false} color="#FF4D77" />
+                        </Button>
+                    </aside>
+                    <aside className="by-slider-mini-btn right">
+                        <Button onClick={this.nextImage}>
+                            <Arrow iconInvert={true} color="#FF4D77" />
+                        </Button>
+                    </aside>
                 </aside>
                 <aside className="by-slider-object">
-                {this.props.children}
+                    {this.props.children}
                 </aside>
-                
-                <aside className="by-carousel-pagination">
-                    <Pagination count={this.state.counter} active={this.state.current} />
-                </aside>
+                {
+                    this.props.pagination 
+                    ?   <aside className="by-carousel-pagination" >
+                            <Pagination count={this.state.counter} active={this.state.current} />
+                        </aside> 
+                    :   null
+                }
             </aside>
         )
     }

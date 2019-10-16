@@ -86,8 +86,8 @@ class MainBanner extends React.Component {
                     </div>
                     <img 
                       
-                      src={item.image.src} 
-                      alt={item.image.title}
+                      src={item.moreImage.src} 
+                      alt={item.moreImage.title}
                     />
                   </div>
                 )}

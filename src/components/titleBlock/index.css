@@ -1,4 +1,4 @@
 .by-titleblock-text {
-    font-size: 2.2em;
+    font-size: var(--title-font-size);
     color: var(--primary-color-title);
 }

@@ -1,3 +1,8 @@
+:root {
+  --by-btn-border-color: 2px solid #303030;
+  ;
+}
+
 .by-btn {
   display: flex;
   width: var(--by-btn-width);
@@ -5,6 +10,7 @@
   background-color: var(--by-btn-bg-color);
   border-radius: var(--by-btn-radius);
   font-size: var(--by-btn-font-size);
+  color: var(--by-btn-color);
   align-items: center;
   justify-content: center;
   background-position: center;
@@ -54,4 +60,9 @@
 
 .by-btn:active .by-arrow {
   color: var(--by-btn-fill-color-active);
+}
+
+.by-btn.by-btn-bordered {
+  background: transparent;
+  border: var(--by-btn-border-color)
 }

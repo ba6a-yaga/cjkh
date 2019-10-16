@@ -12,13 +12,13 @@
 
   --primary-color-digit: #ff4d77;
 
-  --primary-bg: #f06787;
-  --secondary-bg: #ffb8c9;
+  --primary-bg: #fff;
+  --secondary-bg: #f6f6f6;
 
   --medium-margin: 2.5rem;
   --large-margin: 5rem;
 
-  --title-font-size: 1.625em;
+  --title-font-size: 1.75em;
   --desc-font-size: 1.125em;
 
   font-size: calc(14px+1vw);
@@ -59,10 +59,28 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Seravek";
+  src: url("./assets/fonts/Seravek-Light.eot");
+  src: url("./assets/fonts/Seravek-Light.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Seravek.ttf") format("truetype"),
+    url("./assets/fonts/Seravek.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
 *,
 ::before,
 ::after {
   box-sizing: inherit;
+}
+
+.light-bg {
+  background: var(--primary-bg);
+}
+
+.dark-bg {
+  background: var(--secondary-bg);
 }
 
 .clearfix::after {
@@ -73,9 +91,23 @@
 
 body {
   font-family: var(--primary-font);
-  background-color: #fff;
+  background-color: var(--secondary-bg);
+  &:before {
+    height: 100vh;
+    background-color: var(--primary-bg);
+    content: "";
+    width: calc((100vw - 1240px) / 2);
+    position: fixed;
+    z-index: 0;
+
+    display: block;
+  }
 }
 
+#root {
+  position: relative;
+  z-index: 1;
+}
 button {
   font-family: var(--primary-font);
   background-color: transparent;
@@ -89,43 +121,24 @@ p {
   transition: color 0.25s;
 }
 
+h1 {
+  font-size: var(--title-font-size);
+}
 .by-wrapper-pagination {
   --by-pagination-round-bg-color: #d8d8d8;
   --by-pagination-round-bg-color-active: #ffc19e;
 }
 
 .App {
+  .header-wrapper {
+    padding-bottom: var(--medium-margin);
+  }
   .App-header {
+    background-color: var(--primary-bg);
     display: grid;
     grid-template-columns: 442px 1fr 220px;
     width: 100%;
     height: 75px;
-    .App-header-social-icons {
-      --by-wrapper-icon-social-border: 2px solid #f5f5f5;
-      --by-wrapper-icon-social-border-radius: 6px;
-      --by-wrapper-icon-social-bg: #ffffff;
-      --by-wrapper-icon-social-fill: #848485;
-
-      --by-wrapper-icon-social-border-hover: 2px solid #ffffff;
-      --by-wrapper-icon-social-border-radius-hover: 6px;
-      --by-wrapper-icon-social-bg-hover: #ffc19e;
-      --by-wrapper-icon-social-fill-hover: var(--primary-color-text);
-
-      .by-wrapper-icon-social {
-        width: 28px;
-        height: 28px;
-        box-sizing: content-box;
-        svg {
-          fill: #848485;
-          transition: 0.25s fill;
-        }
-        &:hover {
-          svg {
-            fill: var(--primary-color-text);
-          }
-        }
-      }
-    }
     .App-logo {
       grid-row: 1;
       grid-column: 1;
@@ -150,10 +163,9 @@ p {
   .App-main-layout {
     display: grid;
     grid-template-columns: 442px 1fr 320px;
-  }
-
-  .App-title-with-divider {
-    border-bottom: 2px solid #000;
+    &.App-main-layout-left-extend {
+      grid-template-columns: 442px 1fr 220px;
+    }
   }
 
   .App-main {
@@ -484,6 +496,33 @@ p {
           font-size: 0.8rem;
           color: #a2a1a1;
         }
+      }
+    }
+  }
+}
+
+.App-social-icons {
+  --by-wrapper-icon-social-border: 2px solid #f5f5f5;
+  --by-wrapper-icon-social-border-radius: 6px;
+  --by-wrapper-icon-social-bg: #ffffff;
+  --by-wrapper-icon-social-fill: #848485;
+
+  --by-wrapper-icon-social-border-hover: 2px solid #ffffff;
+  --by-wrapper-icon-social-border-radius-hover: 6px;
+  --by-wrapper-icon-social-bg-hover: #ffc19e;
+  --by-wrapper-icon-social-fill-hover: var(--primary-color-text);
+
+  .by-wrapper-icon-social {
+    width: 28px;
+    height: 28px;
+    box-sizing: content-box;
+    svg {
+      fill: #848485;
+      transition: 0.25s fill;
+    }
+    &:hover {
+      svg {
+        fill: var(--primary-color-text);
       }
     }
   }
