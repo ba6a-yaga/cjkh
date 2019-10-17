@@ -45,15 +45,27 @@
     grid-template-columns: 1fr 1fr;
     align-self: flex-end;
   }
-  .by-slider-object {
-    /* max-width: 1150px; */
+  .by-slider-object-container {
     display: grid;
-    grid-gap: 20px;
-    grid-auto-flow: column;
-    justify-items: center;
+    justify-self: stretch;
+    overflow: hidden;
+    .by-slider-object {
+      /* max-width: 1150px; */
+      display: grid;
+      grid-gap: 20px;
+      grid-auto-flow: column;
+      justify-items: center;
+      transform: translateX(0%);
+      transition: transform 0.5s;
+      > {
+        transition: opacity 0.25s;
+      }
+    }
   }
 }
-
+.by-element-tail {
+  opacity: 0.5;
+}
 .by-carousel-custom-mini-btn {
   justify-self: center;
   align-self: center;

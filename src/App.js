@@ -25,6 +25,7 @@ import Feedback from './containers/feedback';
 import Autopark from './containers/autopark';
 import Pavilion from './containers/pavilion';
 import News from './containers/news';
+import ContactsPopup from './containers/contactsPopup';
 function App() {
   return (
     <div className="App">
@@ -61,6 +62,7 @@ function App() {
       
     </main>
     <Footer></Footer>
+    <ContactsPopup data={data.contacts}></ContactsPopup>
     </div>
   );
 }

@@ -12,16 +12,30 @@ class Feedback extends React.Component {
       return title
     }
   }
+  state = {
+    pagesCount:1,
+    current:1
+  }
+  pagesCountUpdated = (pagesCount)=> {
+    this.setState({pagesCount:pagesCount})
+  }
+  currentPageUpdated = (current)=> {
+    this.setState({current:current + 1})
+  }
   render() {
     let data = this.props.data
     return (
       <section className={`App-feedback ${ this.props.className }`}>
 
         <TitleBlock className="App-title-with-divider" text={data.title}>
-          <Pagination  count={data.list.length} active={1} hideNumber={true} />
+          <Pagination  count={this.state.pagesCount} active={this.state.current} hideNumber={true} />
         </TitleBlock>
         <section className="by-slider-contrainer">
-          <Slider elementsCount={data.list.length} current>
+          <Slider 
+            elementsCount={data.list.length} 
+            pagesCountUpdated={this.pagesCountUpdated}
+            currentPageUpdated={this.currentPageUpdated}
+          >
             {data.list.map((item, index) => 
               <InfoBlock 
                 className={`App-info-block ${this.props.roundImage ? "by-round-image":''}` }
