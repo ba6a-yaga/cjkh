@@ -1,0 +1,4 @@
+.by-titleblock-text {
+    font-size: var(--title-font-size);
+    color: var(--primary-color-title);
+}

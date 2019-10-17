@@ -1,0 +1,132 @@
+@keyframes image-center-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-130%);
+  }
+}
+
+@keyframes image-right-center {
+  from {
+    transform: translateX(130%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes image-center-right {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes image-left-center {
+  from {
+    transform: translateX(-130%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.by-wrapper-carousel-media-object {
+  /* max-width: 1150px; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  justify-items: center;
+}
+
+.by-carousel-custom-mini-btn {
+  justify-self: center;
+  align-self: center;
+  --by-btn-bg-color: #848485;
+  --by-btn-bg-color-hover: #ffc19e;
+  --by-btn-bg-color-active: #ffc19e;
+  --by-btn-width: 60px;
+  --by-btn-height: 35px;
+  --by-btn-radius: 30px;
+}
+
+.by-carousel-custom-mini-btn.left {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.by-carousel-custom-mini-btn.right {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.by-carousel-pagination {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
+  align-self: flex-start;
+  margin: 4rem 0 0 0;
+}
+
+.by-carousel-wrapper-media-object {
+  display: grid;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 270px;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.by-carousel-media-object {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1;
+  /* margin: 0 2em 0 2em; */
+}
+
+.by-carousel-media-object.invise {
+  transform: translateX(130%);
+}
+
+.by-carousel-media-object-avatar {
+  display: block;
+  width: 125px;
+  height: 125px;
+  border-radius: 75px;
+  overflow: hidden;
+  justify-self: center;
+}
+
+.by-carousel-media-object-note {
+  font-family: "Noteworthy";
+  text-align: center;
+  font-size: 1.1em;
+  width: 345px;
+  color: #303030;
+}
+
+.by-carousel-media-object-wrapper-sign {
+  display: flex;
+  justify-content: center;
+}
+
+.by-carousel-media-object-sign {
+  text-align: center;
+  float: left;
+}
+
+.by-carousel-media-object-sign:nth-child(1) {
+  margin: 0 0 0 0;
+  font-size: 1.1em;
+  color: #ff4d77;
+}
+
+.by-carousel-media-object-sign:nth-child(2) {
+  margin: 0 0 0 0.5em;
+  font-size: 1.1em;
+  color: #a2a1a1;
+}

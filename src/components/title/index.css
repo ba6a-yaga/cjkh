@@ -1,0 +1,17 @@
+.by-main-title {
+
+}
+
+.by-main-title-text {
+    margin-top: 1.5rem;
+    font-size: var(--by-title-text); 
+    text-transform: uppercase;
+    color: var(--secondary-color-title);
+}
+
+.by-main-title-desc {
+    max-width: 500px;
+    margin: 1.5rem 0 0 0;
+    font-size: var(--by-title-desc);
+    color: var(--secondary-color-text);
+}

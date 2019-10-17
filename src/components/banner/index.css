@@ -1,0 +1,77 @@
+@keyframes image-center-left {
+    from {transform: translateX(0%) ;}
+    to   {transform: translateX(-100%) ;}
+}
+@keyframes image-right-center {
+    from {transform: translateX(100%) ;}
+    to   {transform: translateX(0%) ;}
+}
+@keyframes image-center-right {
+    from {transform: translateX(0%) ;}
+    to   {transform: translateX(100%) ;}
+}
+@keyframes image-left-center {
+    from {transform: translateX(-100%) ;}
+    to   {transform: translateX(0%) ;}
+}
+
+.by-wrapper-banner {
+    display: grid;
+}
+
+.by-banner-title {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+    margin:  5em 0 0 3em;
+    z-index:3;
+
+    --by-title-desc: 2.25em;
+    --by-title-text: 2.25em;
+}
+
+.by-banner-shape {
+    grid-row: 1;
+    grid-column: 1;
+    z-index:2;
+}
+
+.by-banner-photo {
+    grid-row: 1;
+    grid-column: 1;
+    height: 526px;
+    margin: 0 0 0 10em;
+    z-index: 1;
+}
+
+.by-banner-photo.invise {
+    transform: translateX(130%)
+}
+
+.by-banner-control {
+    z-index:4;
+    grid-row: 1;
+    grid-column: 1;
+    --by-btn-width: 131px;
+    --by-btn-height: 50px;
+    --by-btn-radius: 30px;
+    --by-btn-font-size: 1em;
+}
+
+.by-banner-control.first {
+    align-self: flex-end;
+    margin: 0 0 1.5em 14em;
+    --by-btn-font-color: white;
+    --by-btn-bg-color: #FF4D77;
+    --by-btn-bg-color-hover: #FFB8C9;
+    --by-btn-bg-color-active: #FF4D77;
+  }
+  
+.by-banner-control.second {
+    align-self: flex-end;
+    margin: 0 0 1.5em 3em;
+    --by-btn-font-color: #FF4D77;
+    --by-btn-bg-color: #FFF;
+    --by-btn-bg-color-hover: #FFB8C9;
+    --by-btn-bg-color-active: #FF4D77;
+}
