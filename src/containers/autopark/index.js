@@ -5,10 +5,10 @@ import Button from '../../components/button';
 import Pagination from '../../components/pagination';
 import LabeledValue from '../../components/labeledValue';
 import Arrow from '../../components/arrow';
-import Consult from '../../components/consult';
+import Consult from '../../containers/consult';
 class Autopark extends React.Component {
     videoPlayerRef = React.createRef();
-    state ={
+    state = {
       videoPlaying:false
     }
     getButtonPlayIcon() {

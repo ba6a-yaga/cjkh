@@ -8,8 +8,14 @@
   top: 0;
   left: 0;
   bottom: 0;
-  display: grid;
-  display: none;
+
+  &.by-modal-hidden {
+    display: grid;
+  }
+  &.by-modal-visible {
+    display: grid;
+  }
+
   &::before {
     display: block;
     content: "";
@@ -27,9 +33,10 @@
     align-self: stretch;
     justify-self: stretch;
     background: transparent;
-    padding: 10px;
     z-index: 12002;
+    width: 100%;
     max-width: 1240px;
+    margin: 0 auto;
 
     .by-modal {
       max-width: 100%;
@@ -89,5 +96,85 @@
         transform: rotate(-45deg);
       }
     }
+  }
+}
+
+.zoom-in-enter {
+  &:before {
+    opacity: 0;
+  }
+  .by-modal-content {
+    transform: scale(0.9);
+  }
+}
+.zoom-in-enter-active {
+  &:before {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .by-modal-content {
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+}
+.zoom-in-exit {
+  &:before {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .by-modal-content {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.zoom-in-exit-active {
+  &:before {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  .by-modal-content {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
+}
+
+.zoom-inout-enter {
+  &:before {
+    opacity: 0;
+  }
+  .by-modal-content {
+    transform: scale(0.8);
+  }
+}
+.zoom-inout-enter-active {
+  &:before {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .by-modal-content {
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+}
+.zoom-inout-exit {
+  &:before {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .by-modal-content {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.zoom-inout-exit-active {
+  &:before {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  .by-modal-content {
+    transform: scale(1.2);
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
   }
 }

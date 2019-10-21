@@ -11,7 +11,7 @@ import IconSocial from './components/iconSocial'
 import data from './AppData';
 import MainBanner from './containers/mainBanner';
 import TextBlock from './components/textBlock';
-import Consult from './components/consult';
+import Consult from './containers/consult';
 import TitleBlock from './components/titleBlock';
 import InfoBlock from './components/infoBlock';
 import CarouselMediaObject from './components/carouselMediaObject';
@@ -26,6 +26,7 @@ import Autopark from './containers/autopark';
 import Pavilion from './containers/pavilion';
 import News from './containers/news';
 import ContactsPopup from './containers/contactsPopup';
+import Popup from './components/popup';
 function App() {
   return (
     <div className="App">
@@ -62,7 +63,6 @@ function App() {
       
     </main>
     <Footer></Footer>
-    <ContactsPopup data={data.contacts}></ContactsPopup>
     </div>
   );
 }

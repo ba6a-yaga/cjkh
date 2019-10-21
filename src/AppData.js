@@ -303,7 +303,7 @@ export default {
       { 
         title:"Ваше имя",
         type:"text",
-        validator:"email",
+        validator:"nonempty",
         placeholder:"Введите Ваше имя",
       },
       { 
@@ -314,12 +314,12 @@ export default {
       },
       { 
         title:"Текст сообщения",
-        type:"text",
-        validator:"email",
+        type:"textarea",
+        validator:"nonempty",
         placeholder:"Введите текст обращения",
       },
       { 
-        title:"Отправить",
+        title:"ОТПРАВИТЬ",
         type:"submit",
       }
     ],

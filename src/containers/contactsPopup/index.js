@@ -6,27 +6,20 @@ import Popup from '../../components/popup';
 import TitleBlock from '../../components/titleBlock';
 import Phone from '../../components/phone';
 import Email from '../../components/email';
+import Form from '../form';
 class ContactsPopup extends React.Component {
-    formElement = () => {
-      return <div> </div>
-    }
     render() {
       let data = this.props.data
 
-
       return (
-        <Popup>
           <div className="App-contacts-content">
-            <div class="App-contacts-info">
+            <div className="App-contacts-info">
               <TitleBlock text={data.title}></TitleBlock>
               <Phone value={data.phone} />
               <Email value={data.email} />
             </div>
-            <form>
-              {data.form.map((item, index) => this.formElement(item))}
-            </form>
+            <Form data={data.form}></Form>
           </div>
-        </Popup>
       )
         
   }

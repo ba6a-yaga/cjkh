@@ -1,0 +1,45 @@
+.by-form {
+  .by-btn {
+    --by-btn-width: 100%;
+  }
+  grid-gap: var(--medium-margin);
+  display: grid;
+  max-width: 225px;
+  .by-form-input-row {
+    display: grid;
+    grid-gap: 1rem;
+  }
+  .by-form-label {
+    font-size: 1.125em;
+    font-family: var(--primary-font);
+    color: var(--primary-color-link-hover);
+    font-weight: bold;
+    padding-left: 9px;
+  }
+  .by-input-container {
+    display: grid;
+    align-items: stretch;
+    input {
+      font-size: 15px;
+      font-weight: bold;
+      border: 0;
+      outline: 0;
+      background: var(--primary-bg);
+      border-radius: 5px;
+      font-family: var(--primary-font);
+      padding: 12px 14px;
+      height: 31px;
+    }
+    textarea {
+      font-size: 15px;
+      padding: 12px 14px;
+      font-weight: bold;
+      border: 0;
+      outline: 0;
+      background: var(--primary-bg);
+      border-radius: 14px;
+      font-family: var(--primary-font);
+      resize: none;
+    }
+  }
+}

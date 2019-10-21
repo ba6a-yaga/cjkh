@@ -5,6 +5,7 @@
   .App-contacts-info {
     margin-right: 230px;
     display: grid;
+    align-self: center;
     grid-gap: var(--medium-margin);
     text-transform: uppercase;
   }

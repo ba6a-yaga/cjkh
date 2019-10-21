@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import IconSocial from '../../components/iconSocial';
-import Consult from '../../components/consult';
+import Consult from '../../containers/consult';
 class News extends React.Component {
     render() {
       let data = this.props.data
