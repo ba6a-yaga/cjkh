@@ -53,6 +53,34 @@ class App extends React.Component {
     return isVisible;
   }
 
+  onMenuItemClick(e, item, index) {
+      e.preventDefault();
+      switch (index) {
+        case 0: 
+          this.scrollTo("App-main-works")
+          break
+        case 1:
+          this.scrollTo("App-main-feedback")
+          break;
+        case 2:
+          this.scrollTo("App-main-partners")
+          break;
+        case 3:
+          this.scrollTo("App-main-news")
+          break;
+        default:
+            break;
+      }
+    return false
+  }
+
+  scrollTo = (id) => {
+    console.log(id)
+    let el = document.querySelector(`#${id}`)
+    console.log(el)
+    if (el != null) el.scrollIntoView({behavior: "smooth"})
+  }
+
   scrollEventHandler = e => {
     this.showUpElements.forEach(elem => {
       if(elem && this.isScrolledIntoView(elem)) {
@@ -75,7 +103,7 @@ class App extends React.Component {
             <Logo />
           </div>
           <div className="App-menu">
-            <MainMenu items={data.main.menu} />
+            <MainMenu items={data.main.menu} onMenuItemClick={(e, item, index) => {return this.onMenuItemClick(e, item, index)}}/>
           </div>
           
           <div className="App-social-icons App-header-social-icons">
@@ -88,15 +116,15 @@ class App extends React.Component {
         
       
       <main className="App-main">
-        <Wrapper><MainBanner className="App-main-banner App-main-layout" list={data.main.banners}></MainBanner></Wrapper>
-        <Wrapper><Works className="App-main-works App-main-layout App-main-layout-left-extend" data={data.main.works} consult={data.main.consult}></Works></Wrapper>
-        <Wrapper><Feedback className="App-main-feedback App-main-layout" data={data.main.feedback} colorize={true} roundImage={true}></Feedback></Wrapper>
-        <Wrapper><Autopark className="App-main-autopark App-main-layout" data={data.main.auto} consult={data.main.consult}></Autopark></Wrapper>
-        <Wrapper><Feedback className="App-main-partners App-main-layout" data={data.main.partners}></Feedback></Wrapper>
-        <Wrapper className="light-bg header-wrapper">
+        <Wrapper id="App-main-banner"><MainBanner className="App-main-banner App-main-layout" list={data.main.banners}></MainBanner></Wrapper>
+        <Wrapper id="App-main-works"><Works className="App-main-works App-main-layout App-main-layout-left-extend" data={data.main.works} consult={data.main.consult}></Works></Wrapper>
+        <Wrapper id="App-main-feedback"><Feedback className="App-main-feedback App-main-layout" data={data.main.feedback} colorize={true} roundImage={true}></Feedback></Wrapper>
+        <Wrapper id="App-main-autopark"><Autopark className="App-main-autopark App-main-layout" data={data.main.auto} consult={data.main.consult}></Autopark></Wrapper>
+        <Wrapper id="App-main-partners"><Feedback className="App-main-partners App-main-layout" data={data.main.partners}></Feedback></Wrapper>
+        <Wrapper  id="App-main-pavilion"className="light-bg header-wrapper">
           <Pavilion  className="App-main-pavilion" data={data.main.pavilion}></Pavilion>
         </Wrapper>
-        <Wrapper className="show-up dark-bg header-wrapper">
+        <Wrapper  id="App-main-news"className="show-up dark-bg header-wrapper">
           <News className="App-main-news" data={data.main.news} social={data.main.social} consult={data.main.consult}></News>
         </Wrapper>
         

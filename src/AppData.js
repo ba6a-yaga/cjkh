@@ -19,8 +19,8 @@ export default {
   main: {
     menu:[
       {href:"#portfolio", title:"ПОРТФОЛИО"},
-      {href:"#partners", title:"ПАРТНЕРЫ"},
       {href:"#feedback", title:"ОТЗЫВЫ"},
+      {href:"#partners", title:"ПАРТНЕРЫ"},
       {href:"#contact", title:"КОНТАКТЫ"},
     ],
     social: [

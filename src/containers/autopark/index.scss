@@ -2,6 +2,7 @@
 .by-autopark {
   margin-right: -100px;
   row-gap: var(--medium-margin);
+  padding-bottom: var(--large-margin);
   &:before {
     @extend %bg-left;
   }
