@@ -1,6 +1,11 @@
+@import "../../settings.scss";
 .App-works {
   background: var(--secondary-bg);
   margin-right: -100px;
+  &:before {
+    @extend %bg-left;
+    z-index: 0;
+  }
   .App-works-art {
     background: var(--primary-bg);
     padding-top: var(--medium-margin);
@@ -28,7 +33,7 @@
       grid-column: 1;
       grid-row: 2;
       font-size: var(--desc-font-size);
-      color: var(--primary-color-text);
+      color: var(--primary-color-title);
       font-weight: normal;
       margin-right: var(--medium-margin);
     }

@@ -8,14 +8,28 @@ import Arrow from '../../components/arrow';
 import Consult from '../../containers/consult';
 class Autopark extends React.Component {
     videoPlayerRef = React.createRef();
+    collapsedTextRef = React.createRef();
     state = {
-      videoPlaying:false
+      videoPlaying:false,
+      textCollapsed:true
     }
+    
     getButtonPlayIcon() {
       return this.state.videoPlaying ? <span className="icon-pause"></span> : <span className="icon-play"></span>
     }
     expand = () => {
-      
+      if (this.state.textCollapsed) {
+        this.setState({
+          textCollapsed:false
+        })
+        this.collapsedTextRef.current.style.maxHeight = `${this.collapsedTextRef.current.scrollHeight}px`; // element.scrollHeight;
+      } else {
+        this.setState({
+          textCollapsed:true
+        })
+        this.collapsedTextRef.current.style.maxHeight = ""; // element.scrollHeight;
+
+      }
     }
     onVideoEnded = () => {
       this.setState({videoPlaying:false})
@@ -61,9 +75,9 @@ class Autopark extends React.Component {
             <div className="by-autopark-info-container">
               <div className="by-autopark-info">
                 <div className="by-autopark-description">
-                  <div className="by-description-text" dangerouslySetInnerHTML={{__html:data.desc}} >
+                  <div ref={this.collapsedTextRef} className="by-description-text" dangerouslySetInnerHTML={{__html:data.desc}} >
                   </div>
-                  <Button text="РАЗВЕРНУТЬ" bordered={true} onClick={this.expand}/>
+                  {<Button text={this.state.textCollapsed ? "РАЗВЕРНУТЬ" : "СВЕРНУТЬ"} bordered={true} onClick={this.expand} />}
                 </div>
                 
                 <div className="App-consult">

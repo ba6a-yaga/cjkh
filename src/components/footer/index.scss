@@ -2,6 +2,7 @@
   --by-footer-height: 57px;
   --by-footer-background: #eaeaea;
   --by-footer-color: #a2a1a1;
+  --by-footer-font-size: 14px;
   --by-footer-hover-color: #919191;
 }
 .by-footer {
@@ -9,6 +10,7 @@
   background: var(--by-footer-background);
   color: var(--by-footer-color);
   text-align: center;
+  font-size: var(--by-footer-font-size);
   display: grid;
   align-content: center;
   a.by-mailto {

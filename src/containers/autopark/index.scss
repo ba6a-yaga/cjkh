@@ -11,6 +11,7 @@
     grid-column: 2 / span 2;
     position: relative;
     margin-left: var(--medium-margin);
+
     .by-autopark-video {
       max-width: 100%;
     }
@@ -47,6 +48,7 @@
         --by-btn-height: 55px;
         --by-btn-font-size: 20px;
         --by-btn-color: #fff;
+        --by-btn-bg-color-active: white;
         transition: 0.25s box-shadow;
         border-radius: 50%;
         box-shadow: -6px 6px 0 0 #303030;
@@ -77,9 +79,13 @@
       grid-column: 1;
       grid-row: 2;
       font-size: var(--desc-font-size);
-      color: var(--primary-color-text);
+      color: var(--primary-color-title);
       font-weight: normal;
       margin-right: var(--medium-margin);
+      max-height: 9.4em;
+      line-height: 1.2em;
+      overflow: hidden;
+      transition: max-height 0.5s;
     }
     .by-btn {
       margin-top: 1rem;

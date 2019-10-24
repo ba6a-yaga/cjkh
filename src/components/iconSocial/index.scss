@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
+  width: var(--by-wrapper-icon-social-width);
+  height: var(--by-wrapper-icon-social-height);
   border-radius: var(--by-wrapper-icon-social-border-radius);
   border: var(--by-wrapper-icon-social-border);
   background-color: var(--by-wrapper-icon-social-bg);

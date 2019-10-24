@@ -21,7 +21,10 @@
   --title-font-size: 1.75em;
   --desc-font-size: 1.125em;
 
-  font-size: calc(14px+1vw);
+  --by-btn-font-size: 0.875rem;
+  --percent-move: 20%;
+
+  font-size: 16px;
   box-sizing: border-box;
 }
 @font-face {
@@ -511,10 +514,9 @@ h1 {
   --by-wrapper-icon-social-border-radius-hover: 6px;
   --by-wrapper-icon-social-bg-hover: #ffc19e;
   --by-wrapper-icon-social-fill-hover: var(--primary-color-text);
-
+  --by-wrapper-icon-social-width: 28px;
+  --by-wrapper-icon-social-height: 28px;
   .by-wrapper-icon-social {
-    width: 28px;
-    height: 28px;
     box-sizing: content-box;
     svg {
       fill: #848485;
@@ -525,5 +527,16 @@ h1 {
         fill: var(--primary-color-text);
       }
     }
+  }
+}
+
+@keyframes show-up-block {
+  from {
+    transform: translateY(var(--percent-move));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
   }
 }

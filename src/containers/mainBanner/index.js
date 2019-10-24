@@ -9,14 +9,26 @@ import Arrow from '../../components/arrow';
 class MainBanner extends React.Component {
     state = {
         currentBanner : 0,
+        nextBanner : 0,
+        offset : 0,
         count : this.props.list.length,
         userAgent: window.navigator.userAgent,
     }
     
     changeBanner(offset) {
+      this.setState({
+        offset:offset,
+        nextBanner: (this.state.currentBanner + offset + this.state.count) % this.state.count
+      })
+      setTimeout(() => {
         this.setState({
-            currentBanner: (this.state.currentBanner + offset + this.state.count) % this.state.count
+            nextBanner : -1,
+            currentBanner : this.state.nextBanner,
         })
+      }, 10)
+    }
+    switchAnim(index){
+      return `by-switch-anim ${index === this.state.currentBanner ? "by-current" : ''} ${index === this.state.nextBanner ? "by-next" : ''} ${this.state.offset === -1 ? "offset-prev" :  "offset-next"}`
     }
     render() {
         let list = this.props.list
@@ -32,7 +44,7 @@ class MainBanner extends React.Component {
                     title={item.title} 
                     desc={item.desc} 
                     button="ЧИТАТЬ"
-                    className={`by-switch-anim ${index === this.state.currentBanner ? "by-current" : undefined}`}
+                    className={this.switchAnim(index)}
                   ></TextBlock>
                 )}
               </div>
@@ -40,12 +52,14 @@ class MainBanner extends React.Component {
             <div className="by-main-banner-image-main">
               <div className="by-main-banner-title by-switch-anim-container">
                 {list.map((item, index)=> 
+                  <div key={index} className={this.switchAnim(index)}> 
+                  
                   <img 
-                  key={index} 
                   src={item.image.src} 
                   alt={item.image.title} 
-                  className={`by-switch-anim ${index === this.state.currentBanner ? "by-current" : undefined}` }
+                  
                   />
+                  </div>
                 )}
               </div>
               <div className="by-main-banner-arrows">
@@ -63,7 +77,7 @@ class MainBanner extends React.Component {
                 </aside>
                 <div className="by-main-banner-image-title by-switch-anim-container">
                 {list.map((item, index)=> 
-                  <p key={index} className={`by-switch-anim ${index === this.state.currentBanner ? "by-current" : undefined}` }>
+                  <p key={index} className={this.switchAnim(index)}>
                     {item.image.title}
                   </p>
                 )}
@@ -78,7 +92,7 @@ class MainBanner extends React.Component {
               
               <div className="by-main-banner-title by-switch-anim-container">
                 {list.map((item, index)=> 
-                  <div key={index}  className={`by-main-banner-top-view by-switch-anim ${index === this.state.currentBanner ? "by-current" : undefined}` }>
+                  <div key={index}  className={`by-main-banner-top-view ${this.switchAnim(index)}`}>
                     <div className="by-main-banner-info">
                     {item.characteristics.map((l, i) => 
                       <LabeledValue key={i} title={l.label} value={l.value} />

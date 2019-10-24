@@ -6,7 +6,7 @@ class Pavilion extends React.Component {
     render() {
       let data = this.props.data
       return (
-        <section className={`App-pavilion ${ this.props.className }`}>
+        <section className={`App-pavilion ${ this.props.className ? this.props.className : "" }`}>
           <MasonryLayout className="by-pavilion-masonry">
             {data.list.map((item, index) => 
               <TextOnImage key={index} text={item.title} image={item.image}/>

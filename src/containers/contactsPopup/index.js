@@ -8,6 +8,12 @@ import Phone from '../../components/phone';
 import Email from '../../components/email';
 import Form from '../form';
 class ContactsPopup extends React.Component {
+    state = {
+      email:'',
+      name:'',
+      message:''
+    }
+
     render() {
       let data = this.props.data
 
@@ -18,7 +24,7 @@ class ContactsPopup extends React.Component {
               <Phone value={data.phone} />
               <Email value={data.email} />
             </div>
-            <Form data={data.form}></Form>
+            <Form data={data.form} ></Form>
           </div>
       )
         

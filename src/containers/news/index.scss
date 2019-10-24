@@ -2,8 +2,11 @@
   padding-top: var(--medium-margin);
   grid-template-columns: 1fr 1fr;
   display: grid;
-  max-width: 780px;
+  max-width: 781px;
+  grid-gap: 169px;
   margin: 0 auto;
+  left: 50px;
+  position: relative;
   .by-news-info {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -19,13 +22,20 @@
       --by-wrapper-icon-social-bg-hover: #ffc19e;
       --by-wrapper-icon-social-fill-hover: #303030;
 
+      --by-wrapper-icon-social-width: 40px;
+      --by-wrapper-icon-social-height: 40px;
+
       display: grid;
       align-items: center;
       justify-content: flex-start;
-      grid-gap: 14px;
+      grid-gap: 25px;
       grid-auto-flow: column;
       align-self: flex-end;
+      font-size: 26px;
     }
+  }
+  .by-consult {
+    margin-right: -10px;
   }
   .by-title-text {
     margin: 0;
