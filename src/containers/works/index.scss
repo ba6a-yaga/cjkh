@@ -1,5 +1,12 @@
 @import "../../settings.scss";
 .App-works {
+  @media all and (max-width: $xl) {
+    margin-right: 0;
+  }
+  @media all and (max-width: $md) {
+    margin-right: 0;
+    padding-bottom:var(--large-margin);
+  }
   background: var(--secondary-bg);
   margin-right: -100px;
   &:before {
@@ -7,16 +14,33 @@
     z-index: 0;
   }
   .App-works-art {
+    @media all and (max-width: $md) {
+      max-height: 240px;
+      overflow: hidden;
+      margin-left: 0;
+    }
     background: var(--primary-bg);
     padding-bottom: var(--large-margin);
     margin-left: -100px;
     img {
+      @media all and (max-width: $md) {
+        max-height: 240px;
+        min-height: unset;
+        object-fit: cover;
+        width:100%;
+      }
       min-height: 716px;
       object-fit: cover;
     }
   }
 
   .App-works-info {
+    @media all and (max-width: $md) {
+      grid-column: unset;
+      grid-template-columns: unset;
+      margin:0 6px;
+      padding-left: unset;
+    }
     display: grid;
     align-self: center;
     grid-column: 2 / span 2;
@@ -30,6 +54,9 @@
       color: var(--primary-color-title);
     }
     .by-description-text {
+      @media all and (max-width: $md) {
+        margin-right: unset;
+      }
       grid-column: 1;
       grid-row: 2;
       font-size: var(--desc-font-size);
@@ -40,6 +67,9 @@
   }
 
   .App-works-consult {
+    @media all and (max-width: $md) {
+      display:none;
+    }
     grid-column: 2;
     grid-row: 2;
     display: grid;

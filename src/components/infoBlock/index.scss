@@ -1,7 +1,13 @@
+@import "../../settings.scss";
+
 :root {
   --by-info-block-grid-gap: 8px 17px;
 }
 .by-info-block {
+  @media all and (max-width: $md) {
+    padding: 6px;
+    width: 100vw;
+  }
   display: grid;
   grid-gap: var(--by-info-block-grid-gap);
 

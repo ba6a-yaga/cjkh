@@ -13,8 +13,42 @@ class MainBanner extends React.Component {
         offset : 0,
         count : this.props.list.length,
         userAgent: window.navigator.userAgent,
+        touchStartX: 0,
+        touchEndX: 0,
+        touchStartY: 0,
+        touchEndY: 0,
+    }
+
+    componentDidMount() {
+        let banner = document.querySelector('.by-main-banner')
+        banner.addEventListener('touchstart', e => this.setState(
+          {
+            touchStartX: e.changedTouches[0].screenX, 
+            touchStartY: e.changedTouches[0].screenY
+          }))
+        banner.addEventListener('touchend', e => {
+            this.setState({
+              touchEndX: e.changedTouches[0].screenX,
+              touchEndY: e.changedTouches[0].screenY 
+             })
+            this.detectingMove()
+        })
+        // banner.addEventListener('touchmove', e => e.preventDefault())
     }
     
+    detectingMove = () => {
+        // move on right
+        let horizontalMove = Math.abs(this.state.touchStartX - this.state.touchEndX) > Math.abs(this.state.touchStartY - this.state.touchEndY)
+        let thresholdPassed = Math.abs(this.state.touchStartX - this.state.touchEndX) > 50 
+        if (horizontalMove && this.state.touchStartX > this.state.touchEndX && thresholdPassed) {
+            this.changeBanner(1)
+        }
+        // move on left
+        if (horizontalMove && this.state.touchStartX < this.state.touchEndX && thresholdPassed) {
+            this.changeBanner(-1)
+        }
+    }
+
     changeBanner(offset) {
       this.setState({
         offset:offset,
@@ -32,8 +66,7 @@ class MainBanner extends React.Component {
     }
     render() {
         let list = this.props.list
-
-        return(
+        return( 
           <div className={`by-main-banner ${ this.props.className }`}>
             <div className="by-main-banner-container">
               <Pagination count={list.length} active={this.state.currentBanner + 1} hideNumber={true}/>

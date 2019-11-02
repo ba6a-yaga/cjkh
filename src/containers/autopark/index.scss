@@ -1,5 +1,13 @@
 @import "../../settings.scss";
 .by-autopark {
+  @media all and (max-width: $xl) {
+    margin-right: 0;
+  }
+  @media all and (max-width: $md) {
+    margin-right: 0;
+    margin-left: 0;
+    row-gap: 0;
+  }
   margin-right: -100px;
   row-gap: var(--medium-margin);
   padding-bottom: var(--large-margin);
@@ -7,8 +15,18 @@
     @extend %bg-left;
   }
   .by-autopark-container {
+    @media all and (max-width: $md) {
+      margin-right: 6px;
+      margin-left: 6px;
+      grid-row: 2;
+    }
   }
   .by-autopark-video-container {
+    
+    @media all and (max-width: $md) {
+      grid-column: 1;
+      margin-left:unset;
+    }
     grid-column: 2 / span 2;
     position: relative;
     margin-left: var(--medium-margin);
@@ -17,6 +35,11 @@
       max-width: 100%;
     }
     .by-autopark-video-info {
+      @media all and (max-width: $md) {
+        padding: 8px 11px 11px 11px;
+        grid-template-columns: 36px auto;
+        width:100%;
+      }
       position: absolute;
       left: 0;
       bottom: 0;
@@ -45,6 +68,11 @@
       }
 
       .by-btn {
+        @media all and (max-width: $md) {
+          --by-btn-width: 41px;
+          --by-btn-height: 41px;
+          box-shadow: -4px 4px 0 0 #303030;
+        }
         --by-btn-width: 55px;
         --by-btn-height: 55px;
         --by-btn-font-size: 20px;
@@ -66,17 +94,37 @@
     }
   }
   .by-autopark-info-container {
+    @media all and (max-width: $md) {
+      grid-column: unset;
+      margin-right: 6px;
+      margin-left: 6px;
+    }
     grid-column: 2 / span 2;
   }
 
   .by-autopark-info {
+    @media all and (max-width: $md) {
+      grid-column: unset;
+      grid-template-columns: unset;
+      padding-left: 0;
+
+    }
     display: grid;
     align-self: center;
     grid-column: 2 / span 2;
     padding-left: var(--medium-margin);
     // padding-right: var(--medium-margin);
     grid-template-columns: 1fr 320px;
+    .by-autopark-description {
+      @media all and (max-width: $md) {
+        display: grid;
+      }
+    }
     .by-description-text {
+      @media all and (max-width: $md) {
+        display: grid;
+        grid-row: 1;
+      }
       grid-column: 1;
       grid-row: 2;
       font-size: var(--desc-font-size);
@@ -89,12 +137,19 @@
       transition: max-height 0.5s;
     }
     .by-btn {
+      @media all and (max-width: $md) {
+        --by-btn-font-size: 1rem;
+        justify-self: center;;
+      }
       margin-top: 1rem;
       --by-btn-font-size: 0.8125em;
     }
   }
 
   .App-consult {
+    @media all and (max-width: $md) {
+      display:none;
+    }
     grid-column: 2;
     display: grid;
     align-content: flex-start;

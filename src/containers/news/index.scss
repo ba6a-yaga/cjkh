@@ -1,4 +1,14 @@
+@import "../../settings.scss";
+
 .App-news {
+  @media all and (max-width: $md) {
+    grid-template-columns: 1fr;
+    grid-gap: var(--medium-margin);
+    left: 0;
+    margin-left:6px;
+    margin-right:6px;
+    max-width: 100%;
+  }
   padding-top: var(--medium-margin);
   grid-template-columns: 1fr 1fr;
   display: grid;
@@ -12,6 +22,10 @@
     grid-template-rows: auto 1fr;
 
     .App-social-icons {
+      @media all and (max-width: $md) {
+        justify-self: center;
+        padding-bottom: var(--medium-margin);
+      }
       --by-wrapper-icon-social-border: 2px solid #eaeaea;
       --by-wrapper-icon-social-border-radius: 6px;
       --by-wrapper-icon-social-bg: #f6f6f6;
@@ -35,9 +49,15 @@
     }
   }
   .by-consult {
+    @media all and (max-width: $md) {
+      margin-right: 0px;
+    }
     margin-right: -10px;
   }
   .by-title-text {
+    @media all and (max-width: $md) {
+      grid-row: 2;
+    }
     margin: 0;
   }
 }

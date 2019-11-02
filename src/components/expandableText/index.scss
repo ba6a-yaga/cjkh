@@ -1,0 +1,21 @@
+@import "../../settings.scss";
+.by-expandable-text {
+    display: grid;
+    .by-description-text {
+        @media all and (max-width: $md) {
+            display: grid;
+            grid-row: 1;
+        }
+        line-height: 1.2em;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+    .by-btn {
+        @media all and (max-width: $md) {
+            --by-btn-font-size: 1rem;
+            justify-self: center;;
+        }
+        margin-top: 1rem;
+        --by-btn-font-size: 0.8125em;
+    }
+} 

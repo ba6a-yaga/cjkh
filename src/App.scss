@@ -1,5 +1,12 @@
+@import "./settings.scss";
 :root {
+  @media all and (max-width: $md) {
+    font-size: 12px;
+    --desc-font-size: 1rem;
+    --by-btn-font-size: 1rem;
+  }
   --primary-font: "Seravek", Arial, sans-serif;
+  
   --secondary-font: Luicida Grande;
 
   --primary-color-text: #58595a;
@@ -38,6 +45,7 @@
     url("./assets/fonts/Seravek-Medium.svg#Seravek-Medium") format("svg");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -50,6 +58,7 @@
     url("./assets/fonts/Seravek-Bold.svg#Seravek-Bold") format("svg");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -61,6 +70,7 @@
     url("./assets/fonts/Seravek.svg#Seravek") format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Seravek";
@@ -134,15 +144,33 @@ h1 {
 
 .App {
   .header-wrapper {
+    @media all and (max-width: $md) {
+      padding-bottom: 0;
+    }
     padding-bottom: var(--medium-margin);
   }
   .App-header {
+    @media all and (max-width: $xl) {
+      grid-template-columns: 412px 1fr 290px;
+    }
+    @media all and (max-width: $md) {
+      grid-template-columns: 1fr;
+      height: 59px;
+    }
     background-color: var(--primary-bg);
     display: grid;
     grid-template-columns: 442px 1fr 220px;
     width: 100%;
     height: 75px;
     .App-logo {
+      @media all and (max-width: $md) {
+        justify-self:center;
+        display:grid;
+        justify-items: center;;
+        align-self: center;
+        align-content: center;
+        margin:0;
+      }
       grid-row: 1;
       grid-column: 1;
       z-index: 3;
@@ -152,10 +180,26 @@ h1 {
       height: 48px;
     }
     .App-menu {
-      display: grid;
-      align-items: stretch;
+      align-self: center;
+      align-content: center;
+      .logo-container {
+        @media all and (max-width: $md) {
+          display:grid;
+          height:40px;
+          padding:0 6px;
+          align-content: center;
+          justify-content: flex-start;
+          background: #a3a3a3;
+
+        }
+        display:none;
+      }
+      
     }
     .App-header-social-icons {
+      @media all and (max-width: $md) {
+        display: none;
+      }
       display: grid;
       align-items: center;
       justify-content: flex-end;
@@ -164,55 +208,73 @@ h1 {
     }
   }
   .App-main-layout {
+    @media all and (max-width: $xl) {
+      grid-template-columns: 412px 1fr 290px;
+      margin-right: 0;
+    }
+    @media all and (max-width: $md) {
+      grid-template-columns: 1fr;
+    }
     display: grid;
     grid-template-columns: 442px 1fr 320px;
     &.App-main-layout-left-extend {
+      @media all and (max-width: $xl) {
+        grid-template-columns: 412px 1fr 260px;
+      }
+      @media all and (max-width: $md) {
+        grid-template-columns: 1fr;
+      }
       grid-template-columns: 442px 1fr 220px;
     }
   }
 
+  // width: 100%;
+  .App-burger-menu {
+    @media all and (max-width: $md) {
+      grid-row: 1;
+      grid-column: 1;
+      z-index: 107;
+      margin: 0em 0 0 6px;
+
+      width: 23px;
+      height: 23px;
+      --by-burger-color: var(--primary-color-text);
+      --by-menu-bg-color:#d8d8d8;
+      --by-burger-border-radius: 0;
+      --by-burger-line-height: 3px;
+      --by-burger-line-spacing: 4px;
+      --by-burger-width: 23px;
+      --by-burger-translate-y: 260%;
+      --by-burger-inner-display:block;
+      --by-burger-line-offset:7px;
+    }
+
+    .by-menu {
+      @media all and (max-width: $md) {
+        display:grid;
+        margin-top:65px;
+        grid-auto-flow: row;
+        justify-content: center;
+        grid-gap:25px;
+        color:#303030
+      }
+      a {
+        &:before {
+          display:none;
+        }
+        &:hover {
+          color:inherit;
+        }
+        font-size:16px;
+      }
+    }
+
+  }
+  
   .App-main {
     display: block;
     img {
       max-width: 100%;
-    }
-    // width: 100%;
-    .App-burger-menu {
-      grid-row: 1;
-      grid-column: 1;
-      z-index: 107;
-      margin: 1.5em 0 0 3em;
-
-      width: 36px;
-      height: 34px;
-      --by-burger-color: #ffe1e2;
-
-      .App-main-nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-
-        a {
-          transition: color 0.25s;
-          color: #f06787;
-          font-size: 3em;
-          text-decoration: none;
-
-          &:hover {
-            color: #ffb8c9;
-          }
-        }
-
-        p {
-          margin: 0;
-        }
-
-        a + a {
-          margin: 1.5em 0 0 0;
-        }
-      }
     }
     .App-title-block {
       display: flex;
@@ -229,131 +291,7 @@ h1 {
       margin: var(--medium-margin) 0 0 0;
     }
 
-    .App-wrapper-description {
-      margin-top: var(--medium-margin);
-      width: 100%;
-
-      .App-footer-description-digits {
-        height: 460px;
-
-        .App-wrapper-photogallery {
-          margin: -14.5em 0 0 0;
-          display: grid;
-          grid-template-columns: 0.5fr 1fr 1fr 1fr 0.5fr 1fr 1fr 0.5fr;
-          grid-template-rows: 0.5fr 1fr 1fr;
-          row-gap: 0.5em;
-          column-gap: 0.5em;
-
-          .App-img-part {
-            width: 175px;
-            height: 175px;
-            border-radius: 20px;
-
-            overflow: hidden;
-            // background-color: #F06787;
-
-            img {
-              width: 100%;
-            }
-          }
-
-          .n1st {
-            grid-column: 2;
-            grid-row: 2 / span 3;
-            align-self: center;
-          }
-
-          .n2nd {
-            grid-column: 3;
-            grid-row: 2;
-          }
-
-          .n3th {
-            grid-column: 3;
-            grid-row: 3;
-          }
-
-          .n4th {
-            grid-column: 4 / span 5;
-            grid-row: 1 / span 2;
-
-            width: 275px;
-            height: 275px;
-            border-radius: 20px;
-          }
-          .n5th {
-            grid-column: 4;
-            grid-row: 3;
-          }
-          .n6th {
-            grid-column: 6;
-            grid-row: 2;
-          }
-          .n7th {
-            grid-column: 6;
-            grid-row: 3;
-          }
-          .n8th {
-            grid-column: 7;
-            grid-row: 2 / span 3;
-            align-self: center;
-          }
-        }
-      }
-
-      .App-wrapper-description-digits {
-        display: grid;
-        margin: 0;
-        background-color: #fff7f2;
-        width: 100%;
-        height: 630px;
-        overflow: hidden;
-
-        .App-wrapper-description-round {
-          display: block;
-          grid-column: 1;
-          grid-row: 1;
-        }
-
-        .blue {
-          margin: 10em 0 0 -3em;
-        }
-
-        .red {
-          width: 60%;
-          margin: -30em 0 0 40%;
-        }
-
-        .yellow {
-          margin: 18em 0 0 20%;
-        }
-
-        .App-description {
-          // display: flex;
-          // justify-content: center;
-          grid-column: 1;
-          grid-row: 1;
-          padding-top: var(--medium-margin);
-
-          .App-description-text {
-            color: #303030;
-            font-size: 0.9em;
-            font-family: var(--primary-font);
-            width: 70%;
-            margin: 0 auto;
-          }
-
-          .App-digits {
-            width: calc(160px * 4);
-            margin: 1.5em auto;
-          }
-
-          .App-digits aside {
-            float: left;
-          }
-        }
-      }
-    }
+    
 
     .App-media-cards {
       display: flex;

@@ -1,11 +1,22 @@
+@import "../../settings.scss";
+
 .by-consult {
+  @media all and (max-width: $md) {
+    justify-self: center;
+  }
   font-size: var(--desc-font-size);
   color: var(--primary-color-text);
+  display: grid;
   .by-consult-text {
     margin-top: 0;
     margin-right: var(--medium-margin);
   }
   .by-btn {
+    @media all and (max-width: $md) {
+      justify-self: center;
+      margin-top: var(--medium-margin);
+      margin-bottom: var(--large-margin);
+    }
     margin-top: var(--large-margin);
     --by-btn-font-color: var(--primary-color-text);
     --by-btn-bg-color: #ffc19e;

@@ -32,6 +32,7 @@ class Feedback extends React.Component {
         </TitleBlock>
         <section className="by-slider-contrainer">
           <Slider 
+
             elementsCount={data.list.length} 
             pagesCountUpdated={this.pagesCountUpdated}
             currentPageUpdated={this.currentPageUpdated}
@@ -48,6 +49,7 @@ class Feedback extends React.Component {
               ></InfoBlock>
             )}
           </Slider>
+          <Pagination className="mobile-pagination" count={this.state.pagesCount} active={this.state.current} hideNumber={true} />
         </section>
       </section>
     )

@@ -9,7 +9,7 @@ class Pagination extends React.Component {
             items.push(props.children(i))
         }
         return <aside className="by-wrapper-pagination">{items}</aside>
-    }
+    } 
       
     render() {
         let count = this.props.count

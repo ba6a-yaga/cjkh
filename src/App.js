@@ -16,11 +16,13 @@ import Feedback from './containers/feedback';
 import Autopark from './containers/autopark';
 import Pavilion from './containers/pavilion';
 import News from './containers/news';
+import BurgerMenu from './components/burgerMenu';
 
 class App extends React.Component {
   showUpElements = []
   state = {
   }
+  burgerMenu = React.createRef()
 
   componentDidMount() {
     window.addEventListener("scroll", this.scrollEventHandler, true)
@@ -54,38 +56,45 @@ class App extends React.Component {
   }
 
   onMenuItemClick(e, item, index) {
-      e.preventDefault();
-      switch (index) {
-        case 0: 
-          this.scrollTo("App-main-works")
-          break
-        case 1:
-          this.scrollTo("App-main-feedback")
-          break;
-        case 2:
-          this.scrollTo("App-main-partners")
-          break;
-        case 3:
-          this.scrollTo("App-main-news")
-          break;
-        default:
-            break;
-      }
+    this.burgerMenu.current.hideMenu()
+    
+    e.preventDefault();
+    
+    switch (index) {
+      case 0: 
+        this.scrollTo("App-main-works")
+        break
+      case 1:
+        this.scrollTo("App-main-feedback")
+        break;
+      case 2:
+        this.scrollTo("App-main-partners")
+        break;
+      case 3:
+        this.scrollTo("App-main-news")
+        break;
+      default:
+        break;
+    }
     return false
   }
 
   scrollTo = (id) => {
-    console.log(id)
-    let el = document.querySelector(`#${id}`)
-    console.log(el)
-    if (el != null) el.scrollIntoView({behavior: "smooth"})
+    if (window.innerWidth >= 1024) {
+      let el = document.querySelector(`#${id}`)
+      if (el != null) el.scrollIntoView({behavior: "smooth"})
+    } else {
+      setTimeout(() => {
+        let el = document.querySelector(`#${id}`)
+        if (el != null) el.scrollIntoView({behavior: "smooth"})
+      }, 400)
+    }
   }
 
   scrollEventHandler = e => {
     this.showUpElements.forEach(elem => {
       if(elem && this.isScrolledIntoView(elem)) {
         Array.from(elem.children).forEach(el => {
-          console.log(el.style.getPropertyValue("animation"))
           if (el.style.getPropertyValue("animation") ===  "")  {
             el.style.setProperty("animation", ".75s ease-in-out forwards show-up-block")
           }
@@ -102,8 +111,11 @@ class App extends React.Component {
           <div className="App-logo">
             <Logo />
           </div>
-          <div className="App-menu">
-            <MainMenu items={data.main.menu} onMenuItemClick={(e, item, index) => {return this.onMenuItemClick(e, item, index)}}/>
+          <div className="App-menu App-burger-menu">
+            <BurgerMenu desktopHidden translateY={240} ref={this.burgerMenu} >
+              <div className="logo-container"><Logo /></div>
+              <div className="menu-container" ><MainMenu items={data.main.menu} onMenuItemClick={(e, item, index) => {return this.onMenuItemClick(e, item, index)}}/></div>
+            </BurgerMenu>
           </div>
           
           <div className="App-social-icons App-header-social-icons">

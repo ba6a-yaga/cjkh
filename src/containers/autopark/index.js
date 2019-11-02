@@ -28,7 +28,6 @@ class Autopark extends React.Component {
           textCollapsed:true
         })
         this.collapsedTextRef.current.style.maxHeight = ""; // element.scrollHeight;
-
       }
     }
     onVideoEnded = () => {

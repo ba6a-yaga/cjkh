@@ -1,5 +1,11 @@
 @import "../../settings.scss";
 .by-main-banner {
+  @media all and (max-width: $xl) {
+    margin-right: 0;
+  }
+  @media all and (max-width: $md) {
+    margin-right: 0;
+  }
   &:before {
     @extend %bg-left;
     z-index: 0;
@@ -15,14 +21,30 @@
     padding-bottom: var(--large-margin);
   }
   .by-main-banner-desc {
+    @media all and (max-width: $md) {
+      grid-row: 1;
+      margin:0 6px;
+    }
     margin-right: var(--medium-margin);
   }
   .by-main-banner-image-main {
+    @media all and (max-width: $md) {
+      max-height:240px;
+      grid-row:1;
+      padding-right: unset;
+      
+    }
     overflow: hidden;
     padding-right: 50px;
     padding-bottom: var(--large-margin);
+    img {
+      width:100%;
+    }
   }
   .by-main-banner-arrows {
+    @media all and (max-width: $md) {
+      display: none;
+    }
     display: grid;
     justify-items: flex-start;
     padding-left: 10px;
@@ -53,10 +75,18 @@
   }
 
   .by-main-banner-container {
+    @media all and (max-width: $md) {
+      grid-gap: var(--medium-margin);
+    }
     display: grid;
     align-content: flex-start;
     grid-gap: var(--large-margin);
     padding-top: var(--medium-margin);
+    .by-wrapper-pagination {
+      @media all and (max-width: $md) {
+        justify-self: center;
+      }
+    }
   }
   .by-text-block {
     display: grid;
@@ -65,10 +95,14 @@
       margin: 0;
     }
     .by-btn {
+      justify-self:center;
       margin-top: 8px;
     }
   }
   .by-main-banner-characteristics {
+    @media all and (max-width: $md) {
+      display: none;
+    }
     padding-bottom: var(--large-margin);
     align-items: stretch;
     display: grid;
