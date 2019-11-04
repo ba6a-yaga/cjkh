@@ -1,6 +1,6 @@
 $xxl: 3000px;
 $xl: 1460px;
-$lg: 1240px;
+$lg: 1260px;
 $md: 1023px;
 $sm: 768px;
 $xs: 0px;
@@ -8,6 +8,9 @@ $xs: 0px;
 %bg-left {
   @media all and (max-width: $xl) {
     width: 412px;
+  }
+  @media all and (max-width: $lg) {
+    width: 342px;
   }
   @media all and (max-width: $md) {
     width: 100%;

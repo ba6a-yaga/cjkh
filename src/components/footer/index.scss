@@ -1,3 +1,4 @@
+@import "../../settings.scss";
 :root {
   --by-footer-height: 57px;
   --by-footer-background: #eaeaea;
@@ -13,6 +14,11 @@
   font-size: var(--by-footer-font-size);
   display: grid;
   align-content: center;
+  .made-with-soul {
+    @media all and (max-width: $md) {
+      display:none;
+    }
+  }
   a.by-mailto {
     color: var(--by-footer-color);
     text-decoration: none;

@@ -1,14 +1,38 @@
+@import "../../settings.scss";
+
 .App-contacts-content {
   --primary-color-title: #eaeaea;
   display: grid;
+  @media all and (max-width: $lg) {
+    grid-template-columns: 462px 1fr;
+    margin:0 var(--text-side-padding);
+  }
+  @media all and (max-width: $md) {
+    grid-template-columns: 1fr;
+    margin:0 6px;
+    grid-gap:30px;
+  }
   grid-template-columns: 522px 1fr;
   .App-contacts-info {
+    @media all and (max-width: $md) {
+      align-self: flex-start;
+      margin-top: 1rem;
+      margin-right: unset;
+      justify-content: center;
+      justify-items: center;
+    }
     margin-right: 230px;
     display: grid;
     align-self: flex-start;
     margin-top: 2.8rem;
     grid-gap: var(--medium-margin);
     text-transform: uppercase;
+  }
+  .by-form {
+    @media all and (max-width: $md) {
+      justify-content: center;
+      max-width: 100%;
+    }
   }
   .by-title-block {
     h1 {

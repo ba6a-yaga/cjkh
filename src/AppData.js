@@ -13,6 +13,7 @@ import pavilion2 from './assets/pic/pavilions/pavilion2.png'
 import pavilion3 from './assets/pic/pavilions/pavilion3.png'
 import pavilion4 from './assets/pic/pavilions/pavilion4.png'
 import pavilion5 from './assets/pic/pavilions/pavilion5.png'
+import { requiredValidator, emailValidator } from './utils/validators'
 
 
 export default {
@@ -321,7 +322,7 @@ export default {
       { 
         title:"Ваше имя",
         type:"text",
-        validator:"nonempty",
+        validators:[{validator:requiredValidator, options:{error:"Имя не должно быть пустым"}}],
         placeholder:"Введите Ваше имя",
         name:"name",
         required:true
@@ -329,15 +330,17 @@ export default {
       { 
         title:"Ваш email",
         type:"text",
-        validator:"email",
+        validators:[
+            {validator:requiredValidator, options:{error:"Поле email не должно быть пустым"}}, 
+            {validator:emailValidator, options:{error:"Некорректный адрес электронной почты"}}, 
+        ],
         placeholder:"Введите Ваш email",
         name:"email",
-        required:true
       },
       { 
         title:"Текст сообщения",
         type:"textarea",
-        validator:"nonempty",
+        validators:[{validator:requiredValidator, options:{error:"Текст сообщения не должен быть пустым"}}],
         placeholder:"Введите текст обращения",
         name:"message",
         required:true

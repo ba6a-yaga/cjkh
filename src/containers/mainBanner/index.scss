@@ -17,10 +17,17 @@
   padding-bottom: var(--medium-margin);
 
   .by-main-banner-container {
+    @media all and (max-width: $lg) {
+      margin-left:var(--text-side-padding);
+    }
+    @media all and (max-width: $md) {
+      margin-left:unset;
+    }
     background: var(--primary-bg);
     padding-bottom: var(--large-margin);
   }
   .by-main-banner-desc {
+    
     @media all and (max-width: $md) {
       grid-row: 1;
       margin:0 6px;
@@ -95,7 +102,10 @@
       margin: 0;
     }
     .by-btn {
-      justify-self:center;
+      @media all and (max-width: $md) {
+        justify-self:center;
+        font-size:13px;
+      }
       margin-top: 8px;
     }
   }

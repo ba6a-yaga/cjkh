@@ -6,6 +6,7 @@ import ContactsPopup from "../contactsPopup";
 
 import AppData from "../../AppData"
 import Popup from "../../components/popup";
+import { ContactsInfoProvider } from "../contactsPopup/ContactsInfoContext";
 
 class Consult extends React.Component {
   contactsPopupRef = React.createRef()
@@ -30,7 +31,9 @@ class Consult extends React.Component {
         {
           this.state.isVisible && (
           <Popup ref={this.contactsPopupRef} onHide={this.onHide.bind(this)} animation="zoom-inout">
-            <ContactsPopup data={AppData.contacts}></ContactsPopup>
+            <ContactsInfoProvider>
+              <ContactsPopup data={AppData.contacts}></ContactsPopup>
+            </ContactsInfoProvider>
           </Popup>)
         }
         

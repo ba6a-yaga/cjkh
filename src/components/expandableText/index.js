@@ -23,7 +23,7 @@ export default function ExpandableText(props) {
         setExpandVisible(linesCount * 1.2 * fontSize <= collapsedTextRef.current.scrollHeight)
         // Определяем показывать кнопку развернуть или нет
         
-    });
+    }, [collapsedTextRef, collapsed, linesCount]);
     return (
         <div className="by-expandable-text">
             <div ref={collapsedTextRef} className="by-description-text" style={{maxHeight:maxHeight}} dangerouslySetInnerHTML={{__html:data}} >

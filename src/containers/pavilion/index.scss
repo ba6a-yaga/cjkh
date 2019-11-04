@@ -7,6 +7,10 @@
   padding-top: var(--large-margin);
   padding-bottom: 10.75rem;
   .by-pavilion-info {
+    @media all and (max-width: $lg) {
+      grid-template-columns: 342px 1fr;
+      margin-right: var(--text-side-padding);
+    }
     @media all and (max-width: $md) {
       grid-template-columns: 1fr;
       margin-left: 6px;
