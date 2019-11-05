@@ -1,10 +1,8 @@
 import React from 'react';
 import './index.scss';
-import IconArrow from '../iconArrow'
 import Button from '../button'
 import Pagination from '../pagination'
 import Arrow from '../arrow';
-import { visible } from 'ansi-colors';
 
 class Slider extends React.Component {
 
@@ -27,7 +25,7 @@ class Slider extends React.Component {
     carouselWidth = 0
     containerWidth = 0
     windowWidth = 0
-
+    resizeId = 0
 
     detectingMove = () => {
         // move on right
@@ -40,12 +38,25 @@ class Slider extends React.Component {
         if (horizontalMove && this.state.touchStartX < this.state.touchEndX && thresholdPassed) {
             this.updateCurrent(-1)
         }
+        this.setState({
+            touchStartX: 0,
+            touchEndX: 0,
+            touchStartY: 0,
+            touchEndY: 0,
+        })
     }
+
     onResize(e) {
+        clearTimeout(this.resizeId);
+        this.resizeId = setTimeout(this.doneResizing.bind(this), 500);
+    }
+
+    doneResizing () {
         const isClient = typeof window === 'object';
         this.windowWidth = isClient ? window.innerWidth : undefined;
             
         this.updatePagesCount()
+        this.updateTail(this.state.current)
     }
 
     updatePagesCount() {
@@ -65,6 +76,9 @@ class Slider extends React.Component {
             if (this.props.pagesCountUpdated !== undefined) {
                 this.props.pagesCountUpdated(pagesCount)
             }
+            if (this.state.current > pagesCount) {
+                this.setState({current:pagesCount - 1})
+            }
         }
     } 
     componentWillUnmount = () => {
@@ -78,13 +92,22 @@ class Slider extends React.Component {
           {
             touchStartX: e.changedTouches[0].screenX, 
             touchStartY: e.changedTouches[0].screenY
-          }))
+        }))
+        this.containerRef.current.addEventListener('touchmove', e => {
+            let horizontalMove = Math.abs(this.state.touchStartX - e.changedTouches[0].screenX) > Math.abs(this.state.touchStartY - e.changedTouches[0].screenY)
+            if (horizontalMove) {
+                if (e.cancelable) {
+                    e.preventDefault()
+                } 
+            }
+        })
         this.containerRef.current.addEventListener('touchend', e => {
             this.setState({
               touchEndX: e.changedTouches[0].screenX,
               touchEndY: e.changedTouches[0].screenY 
              })
             this.detectingMove()
+            
         })
         
         this.updateTail(0)
@@ -100,8 +123,8 @@ class Slider extends React.Component {
     }
 
     getTranslate(page) {
-        if (page === this.state.pagesCount - 1 && this.windowWidth > 1024) {
-            return this.containerWidth - this.carouselWidth + this.columnGap
+        if (page === this.state.pagesCount - 1 && this.windowWidth >= 1024) {
+            return this.containerWidth - this.carouselWidth
         } else {
             return -(Math.max(this.elementsPerPage, 1) * page) * this.elementWidth
         }
@@ -133,7 +156,6 @@ class Slider extends React.Component {
         const transformSliderStyles = { 
             transform: `translate(${translate}px, ${0}px)` 
         };
-        console.log(this.state.current)
         return(
             <aside className="by-wrapper-slider">
                 <aside className="by-slider-buttons" >

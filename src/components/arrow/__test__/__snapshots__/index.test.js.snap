@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly  1`] = `
+<span
+  className="by-arrow icon-arrow-left "
+/>
+`;
+
+exports[`render correctly with inverted icon 1`] = `
+<span
+  className="by-arrow icon-arrow-left by-icon-arrow-left"
+/>
+`;

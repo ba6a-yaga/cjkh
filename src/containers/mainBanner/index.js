@@ -2,7 +2,6 @@ import React from 'react';
 import './index.scss';
 import TextBlock from '../../components/textBlock';
 import Button from '../../components/button';
-import IconArrow from '../../components/iconArrow';
 import Pagination from '../../components/pagination';
 import LabeledValue from '../../components/labeledValue';
 import Arrow from '../../components/arrow';
@@ -21,18 +20,30 @@ class MainBanner extends React.Component {
 
     componentDidMount() {
         let banner = document.querySelector('.by-main-banner')
-        banner.addEventListener('touchstart', e => this.setState(
-          {
-            touchStartX: e.changedTouches[0].screenX, 
-            touchStartY: e.changedTouches[0].screenY
-          }))
-        banner.addEventListener('touchend', e => {
-            this.setState({
-              touchEndX: e.changedTouches[0].screenX,
-              touchEndY: e.changedTouches[0].screenY 
-             })
-            this.detectingMove()
-        })
+        if (banner) {
+
+          banner.addEventListener('touchstart', e => this.setState(
+            {
+              touchStartX: e.changedTouches[0].screenX, 
+              touchStartY: e.changedTouches[0].screenY
+            }))
+            banner.addEventListener('touchmove', e => {
+              let horizontalMove = Math.abs(this.state.touchStartX - e.changedTouches[0].screenX) > Math.abs(this.state.touchStartY - e.changedTouches[0].screenY)
+              if (horizontalMove) {
+                if (e.cancelable) {
+                  e.preventDefault()
+                } 
+              }
+            })
+          banner.addEventListener('touchend', e => {
+              this.setState({
+                touchEndX: e.changedTouches[0].screenX,
+                touchEndY: e.changedTouches[0].screenY 
+              })
+              this.detectingMove()
+          })
+        }
+
         // banner.addEventListener('touchmove', e => e.preventDefault())
     }
     

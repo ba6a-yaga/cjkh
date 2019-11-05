@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 
-
+const isClient = typeof window === 'object';
 // Hook
 export default function useWindowSize() {
-  const isClient = typeof window === 'object';
 
   function getSize() {
     return {

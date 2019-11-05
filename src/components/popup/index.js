@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import {CSSTransition} from 'react-transition-group';
@@ -43,7 +43,7 @@ class Popup extends React.Component {
   render() {
     return ReactDOM.createPortal(
         <CSSTransition in={this.state.isVisible} timeout={550} classNames={`${this.props.animation ? this.props.animation: ''}`} appear unmountOnExit>
-          <aside className={`by-modal-dialog`}>
+          <div className={`by-modal-dialog`}>
             <div className="by-modal-container" >
               <div className="by-modal">
                 <div className="by-modal-content">
@@ -58,7 +58,7 @@ class Popup extends React.Component {
                 </div>
               </div>
             </div>
-          </aside>
+          </div>
         </CSSTransition>
       ,
       this.el,

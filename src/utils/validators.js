@@ -1,5 +1,3 @@
-import React from 'react';
-
 const requiredValidator = {
   type:"required",
   validate : (value, options) => {
@@ -63,7 +61,7 @@ const regexValidator = {
   validate :(value,  options) => {
     const { error = "Неверный формат", regexp=/^$/g} = options || {};
     return new Promise((resolve, reject) => {
-      const re = options.regexp
+      const re = regexp
       const isMatch = re.test(String(value ? value : '').toLowerCase());
       if (isMatch) {
         resolve(true);

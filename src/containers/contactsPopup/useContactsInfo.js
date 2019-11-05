@@ -5,7 +5,7 @@ const useContactsInfo = () => {
   const [state, setState] = useContext(ContactsInfoContext)
   console.log("state", state)
   function sendContactsInfo(data) {
-    setState({...state, email:data.email, name:data.name, name:data.message, errors:[]})
+    setState({...state, email:data.email, name:data.name, message:data.message, errors:[]})
     // fetch("http://192.168.31.144:3000/sendData", {
     //     method: 'post',
     //     headers: {'Content-Type':'application/json'},

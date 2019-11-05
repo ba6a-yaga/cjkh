@@ -1,31 +1,39 @@
 import React, {useContext} from 'react';
 import './index.scss';
-import MasonryLayout from '../../components/masonryLayout';
-import TextOnImage from '../../components/textOnImage';
-import Popup from '../../components/popup';
-import TitleBlock from '../../components/titleBlock';
 import Phone from '../../components/phone';
 import Email from '../../components/email';
 import Form from '../form';
-import useContactsInfo from './useContactsInfo'
+// import useContactsInfo from './useContactsInfo'
 import { ContactsInfoContext } from './ContactsInfoContext';
+import TextBlock from '../../components/textBlock';
+import Button from '../../components/button';
 export default function ContactsPopup(props) {
     const [state, setState] = useContext(ContactsInfoContext)
 
-    const { sendContactsInfo, errors} = useContactsInfo();
+    // const { sendContactsInfo, errors} = useContactsInfo();
     let data = props.data
+    // const formSuccess = false
     const onFormSubmit = () => {
-      
+      setState({sended:true});
     }
     console.log(state)
     return (
         <div className="App-contacts-content">
           <div className="App-contacts-info">
-            <TitleBlock text={data.title}></TitleBlock>
-            <Phone value={data.phone} />
-            <Email value={data.email} />
+            <TextBlock title={data.title}>
+                <Phone value={data.phone} />
+                <Email value={data.email} />
+            </TextBlock>
+           
           </div>
-          <Form data={data.form} onFormSubmit={onFormSubmit} errors={state.errors}></Form>
+          {
+            state.sended ? 
+            <div className="form-success">
+              <p className="form-succes-text">{data.formSuccess}</p>
+              <Button text="НАЗАД" onClick={props.onBackClick}></Button>
+            </div>:
+            <Form data={data.form} onFormSubmit={onFormSubmit} errors={state.errors}></Form>
+          }
         </div>
     )
 }

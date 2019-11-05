@@ -50,7 +50,6 @@ class App extends React.Component {
 
   isScrolledIntoView(el) {
     let elemTop = el.getBoundingClientRect().top;
-    let elemBottom = el.getBoundingClientRect().bottom;
     let isVisible = (elemTop <= window.innerHeight / 3 * 2) //&& (elemBottom <= window.innerHeight);
     return isVisible;
   }

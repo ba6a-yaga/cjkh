@@ -16,6 +16,7 @@ class BurgerMenu extends React.Component {
             isOpened: !this.state.isOpened
         })
     }
+    
     hideMenu = () => {
         this.setState({
             isOpened: false

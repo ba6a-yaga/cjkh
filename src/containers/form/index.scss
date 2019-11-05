@@ -1,9 +1,24 @@
+@import "../../settings.scss";
+
+
+
 .by-form {
+  @media all and (max-width: $md) {
+    --by-form-label-font-size:1.5rem;
+    --by-form-errors-font-size:14px;
+    --by-form-input-font-size:14px;
+    --by-form-input-error-font-size:14px;
+  }
+  --by-form-label-font-size:1.125rem;
   --by-form-error-under-field-display:none;
   --error-color: #ff4f4f;
   --error-text-color: #ff4f4f;
   --error-placeholder-color:#a3a3a3;
   --by-form-placeholder-color:#a3a3a3;
+  --by-form-label-font-size:1.125rem;
+  --by-form-input-font-size:0.875rem;
+  --by-form-input-error-font-size:0.75rem;
+  --by-form-errors-font-size:14px;
   .by-btn {
     --by-btn-width: 100%;
     --by-btn-height: 30px;
@@ -19,7 +34,7 @@
       align-items: stretch;
       position: relative;
       input {
-        font-size: 0.875rem;
+        font-size: var(--by-form-input-font-size);
         font-weight: bold;
         border: 0;
         outline: 0;
@@ -35,7 +50,7 @@
         }
       }
       textarea {
-        font-size: 0.875rem;
+        font-size: var(--by-form-input-font-size);
         padding: 0.8125rem;
         font-weight: bold;
         border: 0;
@@ -57,7 +72,7 @@
         height: 0px;
         color: var(-text-color);
         width: 100%;
-        font-size: 0.75rem;
+        font-size: var(--by-form-input-error-font-size);
         font-weight: bold;
         padding: 0.325rem 0.8125rem 0 0.8125rem;
       }
@@ -84,7 +99,7 @@
           height: 0;
           color: var(--error-text-color);
           width: 100%;
-          font-size: 0.75rem;
+          font-size: var(--by-form-input-error-font-size);
           font-weight: bold;
           padding: 0.5125rem 0.8125rem;
         }
@@ -92,14 +107,15 @@
     }
   }
   .by-form-label {
-    font-size: 1.125em;
+    font-size: var(--by-form-label-font-size);
     font-family: var(--primary-font);
     color: var(--primary-color-link-hover);
     font-weight: bold;
     padding-left: 9px;
   }
   .by-errors {
-    font-size:14px;
+    font-size: var(--by-form-error-font-size);
+    
     border:1px solid #fff;
     background:#5f4e4e;
     padding:4px 7px 32px 7px;
@@ -111,5 +127,23 @@
       margin-top:3px;
     }
 
+  }
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select:focus,
+  textarea {
+    font-size: 16px!important;
   }
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import './index.scss'
 import Button from "../../components/button";
 import ContactsPopup from "../contactsPopup";
@@ -23,6 +22,9 @@ class Consult extends React.Component {
       isVisible:false
     })
   }
+  onBackClick() {
+    this.contactsPopupRef.current.hide()
+  }
   render() {
     return(
       <aside className="by-consult">
@@ -32,7 +34,7 @@ class Consult extends React.Component {
           this.state.isVisible && (
           <Popup ref={this.contactsPopupRef} onHide={this.onHide.bind(this)} animation="zoom-inout">
             <ContactsInfoProvider>
-              <ContactsPopup data={AppData.contacts}></ContactsPopup>
+              <ContactsPopup data={AppData.contacts} onBackClick={this.onBackClick.bind(this)}></ContactsPopup>
             </ContactsInfoProvider>
           </Popup>)
         }

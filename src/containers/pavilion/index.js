@@ -18,18 +18,28 @@ class Pavilion extends React.Component {
 
     componentDidMount() {
       let banner = document.querySelector('.App-pavilion')
-      banner.addEventListener('touchstart', e => this.setState(
-        {
-          touchStartX: e.changedTouches[0].screenX, 
-          touchStartY: e.changedTouches[0].screenY
-        }))
-      banner.addEventListener('touchend', e => {
-          this.setState({
-            touchEndX: e.changedTouches[0].screenX,
-            touchEndY: e.changedTouches[0].screenY 
-           })
-          this.detectingMove()
-      })
+      if (banner) {
+        banner.addEventListener('touchstart', e => this.setState(
+          {
+            touchStartX: e.changedTouches[0].screenX, 
+            touchStartY: e.changedTouches[0].screenY
+          }))
+          banner.addEventListener('touchmove', e => {
+            let horizontalMove = Math.abs(this.state.touchStartX - e.changedTouches[0].screenX) > Math.abs(this.state.touchStartY - e.changedTouches[0].screenY)
+            if (horizontalMove) {
+               if (e.cancelable) {
+                  e.preventDefault()
+               } 
+            }
+          })
+        banner.addEventListener('touchend', e => {
+            this.setState({
+              touchEndX: e.changedTouches[0].screenX,
+              touchEndY: e.changedTouches[0].screenY 
+            })
+            this.detectingMove()
+        })
+      }
       
     }
 
@@ -50,7 +60,6 @@ class Pavilion extends React.Component {
         offset:offset,
         nextBanner: (this.state.currentBanner + offset + this.state.count) % this.state.count
       })
-      console.log(this.state)
       setTimeout(() => {
         this.setState({
             nextBanner : -1,
@@ -70,7 +79,8 @@ class Pavilion extends React.Component {
             {data.list.map((item, index) => 
               <TextOnImage 
                 key={index}
-                text={item.title} 
+                title={item.title} 
+                text={item.text} 
                 image={item.image} 
                 className={this.switchAnim(index)}
               />

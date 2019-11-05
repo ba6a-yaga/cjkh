@@ -2,10 +2,8 @@ import React from 'react';
 import './index.scss';
 import TextBlock from '../../components/textBlock';
 import Button from '../../components/button';
-import Pagination from '../../components/pagination';
-import LabeledValue from '../../components/labeledValue';
-import Arrow from '../../components/arrow';
 import Consult from '../../containers/consult';
+import ExpandableText from '../../components/expandableText';
 class Autopark extends React.Component {
     videoPlayerRef = React.createRef();
     collapsedTextRef = React.createRef();
@@ -61,7 +59,7 @@ class Autopark extends React.Component {
                 className="by-autopark-video"
                 playsInline
               >
-                <source src={data.video.src} />
+                <source src={`${data.video.src}#t=0.01`} type='video/mp4' />
               </video>
               <div className="by-autopark-video-info">
                 <Button className="by-autopark-play-button" onClick={this.playVideo.bind(this)}>{this.getButtonPlayIcon()}</Button>
@@ -74,9 +72,7 @@ class Autopark extends React.Component {
             <div className="by-autopark-info-container">
               <div className="by-autopark-info">
                 <div className="by-autopark-description">
-                  <div ref={this.collapsedTextRef} className="by-description-text" dangerouslySetInnerHTML={{__html:data.desc}} >
-                  </div>
-                  {<Button text={this.state.textCollapsed ? "РАЗВЕРНУТЬ" : "СВЕРНУТЬ"} bordered={true} onClick={this.expand} />}
+                  <ExpandableText text={data.desc} linesCount={8}></ExpandableText>
                 </div>
                 
                 <div className="App-consult">

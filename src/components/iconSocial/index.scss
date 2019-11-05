@@ -28,6 +28,17 @@
   }
 
   &:hover {
+    @media (hover: hover) {
+      border-radius: var(--by-wrapper-icon-social-border-radius-hover);
+      border: var(--by-wrapper-icon-social-border-hover);
+      background-color: var(--by-wrapper-icon-social-bg-hover);
+
+      .by-wrapper-icon-symbol {
+        color: var(--by-wrapper-icon-social-fill-hover);
+      }
+    }
+  }
+  &:active {
     border-radius: var(--by-wrapper-icon-social-border-radius-hover);
     border: var(--by-wrapper-icon-social-border-hover);
     background-color: var(--by-wrapper-icon-social-bg-hover);

@@ -1,14 +1,7 @@
 import React from 'react';
 import './index.scss';
-import MasonryLayout from '../../components/masonryLayout';
-import TextOnImage from '../../components/textOnImage';
-import Popup from '../../components/popup';
-import TitleBlock from '../../components/titleBlock';
-import Phone from '../../components/phone';
-import Email from '../../components/email';
 import Button from '../../components/button';
-import InputText from '../../components/inputText';
-import {emailValidator, nonemptyValidator} from "../../utils/validators"
+import 'core-js/es/promise/all-settled'
 class Form extends React.Component {
     
   constructor(props) {

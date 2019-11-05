@@ -7,6 +7,7 @@ const ContactsInfoProvider = (props) => {
     email:'',
     name:'',
     message:'',
+    sended:false,
     errors:[]
   });
   
