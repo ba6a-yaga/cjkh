@@ -36,6 +36,7 @@
 
     .by-autopark-video {
       max-width: 100%;
+      widtH:100%;
     }
     .by-autopark-video-info {
       @media all and (max-width: $md) {
@@ -89,7 +90,7 @@
         --by-btn-font-size: 20px;
         --by-btn-color: #fff;
         --by-btn-bg-color-active: white;
-        transition: 0.25s box-shadow;
+        transition: 0.25s box-shadow, background-color 0.25s ;
         border-radius: 50%;
         box-shadow: -6px 6px 0 0 #303030;
         cursor:pointer;

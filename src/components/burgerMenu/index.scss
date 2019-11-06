@@ -83,7 +83,9 @@
 
 .desktop-hidden {
     .fullscreen {
-        pointer-events: none;
+        @media all and (max-width: $md) {
+            pointer-events: none;
+        }
         .fullscreen-container {
             @media all and (max-width: $md) {
                 display:grid;

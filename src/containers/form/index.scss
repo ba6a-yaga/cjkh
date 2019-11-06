@@ -5,7 +5,7 @@
 .by-form {
   @media all and (max-width: $md) {
     --by-form-label-font-size:1.5rem;
-    --by-form-errors-font-size:14px;
+    --by-form-error-font-size:14px;
     --by-form-input-font-size:14px;
     --by-form-input-error-font-size:14px;
   }
@@ -18,7 +18,7 @@
   --by-form-label-font-size:1.125rem;
   --by-form-input-font-size:0.875rem;
   --by-form-input-error-font-size:0.75rem;
-  --by-form-errors-font-size:14px;
+  --by-form-error-font-size:14px;
   .by-btn {
     --by-btn-width: 100%;
     --by-btn-height: 30px;
@@ -144,6 +144,8 @@
   input[type="week"],
   select:focus,
   textarea {
-    font-size: 16px!important;
+    @media all and (max-width: $md) {
+      font-size: 16px!important;
+    }
   }
 }

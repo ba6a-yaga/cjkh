@@ -59,7 +59,7 @@ class Autopark extends React.Component {
                 className="by-autopark-video"
                 playsInline
               >
-                <source src={`${data.video.src}#t=0.01`} type='video/mp4' />
+                <source src={`${data.video.src}`} type='video/mp4' />
               </video>
               <div className="by-autopark-video-info">
                 <Button className="by-autopark-play-button" onClick={this.playVideo.bind(this)}>{this.getButtonPlayIcon()}</Button>

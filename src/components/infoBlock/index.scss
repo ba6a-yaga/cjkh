@@ -2,6 +2,7 @@
 
 :root {
   --by-info-block-grid-gap: 8px 17px;
+  --by-info-block-image-contain:cover;
 }
 .by-info-block {
   @media all and (max-width: $md) {
@@ -29,7 +30,8 @@
     grid-column: 1;
     width: 55px;
     height: 55px;
-    object-fit: cover;
+    
+    object-fit: var(--by-info-block-image-contain);
   }
   .by-title-text {
     @media all and (max-width: $md) {

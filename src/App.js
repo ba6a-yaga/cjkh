@@ -18,14 +18,16 @@ import Pavilion from './containers/pavilion';
 import News from './containers/news';
 import BurgerMenu from './components/burgerMenu';
 
+import utils from "./utils";
+
 class App extends React.Component {
   showUpElements = []
   state = {
   }
   burgerMenu = React.createRef()
-
   componentDidMount() {
     window.addEventListener("scroll", this.scrollEventHandler, true)
+
     this.showUpElements = [
       document.querySelector('.App-main-banner'),
       document.querySelector('.App-main-works'),
@@ -42,6 +44,10 @@ class App extends React.Component {
       }
     });
     this.scrollEventHandler()
+    utils.css_browser_selector(navigator.userAgent).split(" ").forEach((item)=> {
+      document.body.classList.add(item)
+
+    })
   }
 
   componentWillUnmount() {
