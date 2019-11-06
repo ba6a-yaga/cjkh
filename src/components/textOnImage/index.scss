@@ -1,10 +1,23 @@
+@import "../../settings.scss";
+
 .by-text-on-image {
+  @media all and (max-width: $md) {
+    grid-template-rows: unset;
+    grid-template-columns: unset;
+    grid-row:1!important;
+    grid-column :1!important;
+  }
   display: grid;
   align-self: stretch;
   justify-self: stretch;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   img {
+    @media all and (max-width: $md) {
+      height: 240px;
+      grid-row: 1;
+      grid-column: 1;
+    }
     align-self: stretch;
     justify-self: stretch;
     grid-row: 1;
@@ -18,8 +31,14 @@
     z-index: 0;
   }
   .by-text {
+    
+    @media all and (max-width: $md) {
+      grid-row: 2;
+      grid-column: 1;
+      opacity:1;
+      padding: 10px 18px 8px 18px;
+    }
     display: block;
-    color: #fff;
     opacity: 0;
     margin: 0;
     padding: 30px 26px 27px 40px;
@@ -34,13 +53,41 @@
     align-self: stretch;
     justify-self: stretch;
     z-index: 1;
+    --title-font-size:1rem;
+    --primary-color-title: #fff;
+    --primary-font-size: #fff;
+    display:grid;
+    grid-gap:1rem;
+    .by-title-text {
+      @media all and (max-width: $md) {
+        margin:0;
+        display:block;
+        text-transform: uppercase;;
+      }
+      display:none;
+    }
+    .by-description-text {
+      @media all and (max-width: $md) {
+        display:block;
+        text-transform: unset;
+        color: #a3a3a3;
+      }
+      text-transform: uppercase;;
+    }
   }
   &:hover {
     .by-text {
+      @media all and (max-width: $md) {
+        opacity: 1;
+        background-color: #58595a;
+      }
       opacity: 1;
       background-color: #58595acc;
     }
     img {
+      @media all and (max-width: $md) {
+        opacity: 1;
+      }
       opacity: 0.2;
     }
   }

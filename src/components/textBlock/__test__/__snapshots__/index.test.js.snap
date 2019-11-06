@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly with title 1`] = `
+<div
+  className="by-text-block "
+>
+  <h1
+    className="by-title-text"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Заголовок",
+      }
+    }
+  />
+  <div
+    className="by-description-text"
+  />
+</div>
+`;
+
+exports[`render correctly with title and description 1`] = `
+<div
+  className="by-text-block "
+>
+  <h1
+    className="by-title-text"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Заголовок",
+      }
+    }
+  />
+  <div
+    className="by-description-text"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Описание",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`render correctly with title, description and button 1`] = `
+<div
+  className="by-text-block "
+>
+  <h1
+    className="by-title-text"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Заголовок",
+      }
+    }
+  />
+  <div
+    className="by-description-text"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Текст описания",
+      }
+    }
+  />
+  <button
+    className="by-btn  "
+    onClick={[Function]}
+  >
+    <p>
+      КНОПКА
+    </p>
+    
+  </button>
+</div>
+`;

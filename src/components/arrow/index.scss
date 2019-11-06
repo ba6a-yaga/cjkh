@@ -1,12 +1,20 @@
+:root {
+  --by-arrow-font-size: 9px;
+  --by-arrow-width: 31px;
+}
+
 .by-arrow {
   color: var(--primary-color-text-alternative);
   font-size: 9px;
   .by-icon-arrow-right {
     transform: rotate(180deg);
-  }
+  } 
   &.icon-arrow-left {
     &:before {
       width: 31px;
     }
   }
+  &.by-icon-arrow-left {
+    transform: scale(-1, 1);
+  } 
 }

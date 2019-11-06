@@ -1,6 +1,8 @@
 @import "../../settings.scss";
 .App-feedback {
-  padding-top: var(--large-margin);
+  @media all and (max-width: $md) {
+    padding-bottom: var(--large-margin);
+  }
   padding-bottom: 10.75rem;
   position: relative;
   &::before {
@@ -8,14 +10,37 @@
   }
   .by-slider-contrainer {
     grid-column: 1 / span 3;
+    display: grid;
+
   }
   .App-title-with-divider {
+    @media all and (max-width: $xl) {
+      margin-right: 0;
+    }
+    @media all and (max-width: $md) {
+      margin-left:6px;
+      border-bottom: 4px solid #303030;
+    }
     display: grid;
     grid-template-columns: 336px 1fr;
     grid-column: 1 / span 3;
     border-bottom: 2px solid #000;
     margin-right: -100px;
+    .by-titleblock-text {
+      @media all and (max-width: $lg) {
+        margin-left:var(--text-side-padding);
+      }
+      @media all and (max-width: $md) {
+        margin-left:unset;
+      }
+      @media all and (max-width: $md) {
+        width:260px;
+      }
+    }
     .by-wrapper-pagination {
+      @media all and (max-width: $md) {
+        display:none;
+      }
       grid-column: 2;
       justify-self: flex-end;
       :last-child {
@@ -24,6 +49,24 @@
     }
   }
   .by-wrapper-slider {
+    @media all and (max-width: $xl) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+    @media all and (max-width: $md) {
+      margin-right: 0;
+      margin-left: 0;
+    }
     margin-top: var(--medium-margin);
+    margin-right: -100px;
+  }
+  .by-wrapper-pagination {
+    @media all and (max-width: $md) {
+      margin-top:var(--medium-margin);
+      display:flex;
+      justify-self: center;;
+    }
+    display:none;
+
   }
 }

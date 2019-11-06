@@ -7,7 +7,7 @@ class Footer extends React.Component {
         return(
           <div className={`by-footer ${ this.props.className }`}>
             <div className={'by-footer-content'}>
-              &copy; 2019 Все права защищены. Сделанно с душей <a className="by-mailto" href="mailto:у@бабыяги.рус">у@бабыяги.рус</a>
+              &copy; 2019 Все права защищены. <span className="made-with-soul"> Сделанно с душей <a className="by-mailto" href="mailto:у@бабыяги.рус">у@бабыяги.рус</a></span>
             </div>
           </div>
         )

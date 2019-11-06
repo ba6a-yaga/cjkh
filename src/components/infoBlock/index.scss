@@ -1,7 +1,13 @@
+@import "../../settings.scss";
+
 :root {
   --by-info-block-grid-gap: 8px 17px;
 }
 .by-info-block {
+  @media all and (max-width: $md) {
+    padding: 6px;
+    width: 100vw;
+  }
   display: grid;
   grid-gap: var(--by-info-block-grid-gap);
 
@@ -26,6 +32,9 @@
     object-fit: cover;
   }
   .by-title-text {
+    @media all and (max-width: $md) {
+      font-size: 14px;
+    }
     padding-right: 70px;
     font-size: 0.875em;
     margin: 0;
@@ -35,20 +44,32 @@
     }
   }
   .by-subtitle-text {
+    @media all and (max-width: $md) {
+      font-weight: bold;
+      font-size: 1em;
+    }
     font-size: 0.75em;
     font-weight: 500;
     grid-column: 2;
     color: #a3a3a3;
   }
   .by-more-text {
+    @media all and (max-width: $md) {
+      font-size: 1em;
+    }
     font-size: 0.75em;
     grid-column: 2;
     color: #a3a3a3;
   }
   .by-description-text {
+    @media all and (max-width: $md) {
+      font-size: 1em;
+      color: var(--primary-color-text);
+    }
     margin-top: 0.875em;
     font-size: 0.875em;
     grid-column: 2;
-    color: var(--primary-color-text);
+    text-align: justify;
+    color: var(--primary-color-text-alternative);
   }
 }

@@ -2,20 +2,31 @@ import React from 'react';
 import './index.scss';
 import TextBlock from '../../components/textBlock';
 import Button from '../../components/button';
-import Pagination from '../../components/pagination';
-import LabeledValue from '../../components/labeledValue';
-import Arrow from '../../components/arrow';
-import Consult from '../../components/consult';
+import Consult from '../../containers/consult';
+import ExpandableText from '../../components/expandableText';
 class Autopark extends React.Component {
     videoPlayerRef = React.createRef();
-    state ={
-      videoPlaying:false
+    collapsedTextRef = React.createRef();
+    state = {
+      videoPlaying:false,
+      textCollapsed:true
     }
+    
     getButtonPlayIcon() {
       return this.state.videoPlaying ? <span className="icon-pause"></span> : <span className="icon-play"></span>
     }
     expand = () => {
-      
+      if (this.state.textCollapsed) {
+        this.setState({
+          textCollapsed:false
+        })
+        this.collapsedTextRef.current.style.maxHeight = `${this.collapsedTextRef.current.scrollHeight}px`; // element.scrollHeight;
+      } else {
+        this.setState({
+          textCollapsed:true
+        })
+        this.collapsedTextRef.current.style.maxHeight = ""; // element.scrollHeight;
+      }
     }
     onVideoEnded = () => {
       this.setState({videoPlaying:false})
@@ -48,7 +59,7 @@ class Autopark extends React.Component {
                 className="by-autopark-video"
                 playsInline
               >
-                <source src={data.video.src} />
+                <source src={`${data.video.src}#t=0.01`} type='video/mp4' />
               </video>
               <div className="by-autopark-video-info">
                 <Button className="by-autopark-play-button" onClick={this.playVideo.bind(this)}>{this.getButtonPlayIcon()}</Button>
@@ -61,9 +72,7 @@ class Autopark extends React.Component {
             <div className="by-autopark-info-container">
               <div className="by-autopark-info">
                 <div className="by-autopark-description">
-                  <div className="by-description-text" dangerouslySetInnerHTML={{__html:data.desc}} >
-                  </div>
-                  <Button text="РАЗВЕРНУТЬ" bordered={true} onClick={this.expand}/>
+                  <ExpandableText text={data.desc} linesCount={8}></ExpandableText>
                 </div>
                 
                 <div className="App-consult">

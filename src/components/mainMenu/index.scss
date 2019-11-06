@@ -1,17 +1,19 @@
 .by-menu {
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 51px;
+  grid-gap: 48px;
   list-style-type: none;
   align-items: center;
   padding: 0;
   margin: 0;
+  justify-content: flex-start;
   .by-menu-item {
     a {
       color: var(--primary-color-title);
       text-decoration: none;
       transition: 0.4s color;
       position: relative;
+      font-size: 0.875rem;
       &:before {
         content: "";
         display: block;

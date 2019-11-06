@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import Preloader from '../preloader';
 
 class Button extends React.Component {
 
@@ -22,7 +23,8 @@ class Button extends React.Component {
             <button className={`by-btn ${this.props.bordered ? "by-btn-bordered":''} ${this.props.className ? this.props.className : '' }`}
                     onClick={this.handler}>
                 {iconFloat === "left"? this.props.children : ''}
-                {this.props.text !== undefined? <p>{this.props.text}</p> : null}
+                {this.props.text && !this.props.preloader && <p>{this.props.text}</p>}
+                {this.props.preloader && <Preloader visible={this.props.preloader}></Preloader>}
                 {iconFloat === "right"? this.props.children : ''}
             </button>
         )

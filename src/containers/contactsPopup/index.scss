@@ -1,0 +1,93 @@
+@import "../../settings.scss";
+
+.App-contacts-content {
+  --primary-color-title: #eaeaea;
+  display: grid;
+  @media all and (max-width: $lg) {
+    grid-template-columns: 462px 1fr;
+    margin:0 var(--text-side-padding);
+  }
+  @media all and (max-width: $md) {
+    grid-template-columns: 1fr;
+    margin:0 11px;
+    grid-gap:15px;
+  }
+  grid-template-columns: 522px 1fr;
+  .App-contacts-info {
+    @media all and (max-width: $md) {
+      align-self: flex-start;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+      margin-right: unset;
+      justify-content: flex-start;
+      justify-items: flex-start;
+    }
+    margin-right: 230px;
+    display: grid;
+    align-self: flex-start;
+    margin-top: 2.8rem;
+    grid-gap: var(--medium-margin);
+    text-transform: uppercase;
+  }
+  .by-form {
+    @media all and (max-width: $md) {
+      justify-content: stretch;
+      max-width: 100%;
+    }
+    .by-form-input-row{
+      @media all and (max-width: $md) {
+        justify-content: stretch;
+        width: 100%;
+      }
+    }
+  }
+  .by-text-block {
+    h1 {
+      margin: 0;
+    }
+    .by-description-text {
+      a {
+        @media all and (max-width: $md) {
+          font-size:12px;
+          font-weight: normal;
+        }
+        &.by-email {
+          text-transform: lowercase;
+        }
+      }
+      margin-top:1.2rem;
+      display:grid;
+      grid-gap:1.2rem;
+    }
+  }
+  .by-phone {
+    text-decoration: none;
+    font-size: var(--title-font-size);
+    color: var(--primary-color-title);
+    font-weight: bold;
+  }
+  .by-email {
+    text-decoration: none;
+    font-size: var(--title-font-size);
+    color: var(--primary-color-title);
+    font-weight: bold;
+  }
+  .form-success {
+    @media all and (max-width: $md) {
+      max-width: 100%;;
+    }
+    max-width: 300px;;
+    p.form-succes-text {
+      border:1px solid #fff;
+      background: #4e5f4e;
+      padding:33px 23px;
+      color:#d8d8d8;
+    }
+    display:grid;
+    justify-content: stretch;
+    grid-gap:var(--medium-margin);  
+    .by-btn {
+      --by-btn-width:auto;
+    }
+  }
+}

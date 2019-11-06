@@ -1,20 +1,49 @@
 @import "../../settings.scss";
 .by-autopark {
+  @media all and (max-width: $xl) {
+    margin-right: 0;
+  }
+  @media all and (max-width: $md) {
+    margin-right: 0;
+    margin-left: 0;
+    row-gap: 0;
+  }
   margin-right: -100px;
   row-gap: var(--medium-margin);
+  padding-bottom: var(--large-margin);
   &:before {
     @extend %bg-left;
   }
   .by-autopark-container {
+    @media all and (max-width: $lg) {
+      margin-left:var(--text-side-padding);
+    }
+    @media all and (max-width: $md) {
+      margin-right: 6px;
+      margin-left: 6px;
+      grid-row: 2;
+    }
   }
   .by-autopark-video-container {
+    
+    @media all and (max-width: $md) {
+      grid-column: 1;
+      margin-left:unset;
+    }
     grid-column: 2 / span 2;
     position: relative;
     margin-left: var(--medium-margin);
+
     .by-autopark-video {
       max-width: 100%;
     }
     .by-autopark-video-info {
+      @media all and (max-width: $md) {
+        padding: 8px 11px 11px 11px;
+        grid-template-columns: 36px auto;
+        width:100%;
+        position: relative;
+      }
       position: absolute;
       left: 0;
       bottom: 0;
@@ -32,10 +61,17 @@
         grid-row: 1 / span 2;
       }
       .by-autopark-video-title {
+        @media all and (max-width: $md) {
+          font-size: 1rem;
+        }
         grid-column: 2;
         font-size: 0.875rem;
       }
       .by-autopark-video-desc {
+        @media all and (max-width: $md) {
+          font-size: 1rem;
+          margin-top:7px; 
+        }
         grid-column: 2;
         grid-row: 2;
         font-size: 0.75rem;
@@ -43,16 +79,24 @@
       }
 
       .by-btn {
+        @media all and (max-width: $md) {
+          --by-btn-width: 41px;
+          --by-btn-height: 41px;
+          box-shadow: -4px 4px 0 0 #303030;
+        }
         --by-btn-width: 55px;
         --by-btn-height: 55px;
         --by-btn-font-size: 20px;
         --by-btn-color: #fff;
+        --by-btn-bg-color-active: white;
         transition: 0.25s box-shadow;
         border-radius: 50%;
         box-shadow: -6px 6px 0 0 #303030;
-        &:hover {
-          box-shadow: 0px 0px 0 0 #303030;
+        cursor:pointer;
+        &:hover, &:focus {
+            box-shadow: 0px 0px 0 0 #303030;
         }
+
         .icon-play {
           &::before {
             position: relative;
@@ -63,31 +107,63 @@
     }
   }
   .by-autopark-info-container {
+    @media all and (max-width: $md) {
+      display: grid;
+      grid-column: unset;
+      margin-right: 6px;
+      margin-left: 6px;
+    }
     grid-column: 2 / span 2;
   }
 
   .by-autopark-info {
+    @media all and (max-width: $md) {
+      grid-column: unset;
+      grid-template-columns: unset;
+      padding-left: 0;
+
+    }
     display: grid;
     align-self: center;
     grid-column: 2 / span 2;
     padding-left: var(--medium-margin);
     // padding-right: var(--medium-margin);
     grid-template-columns: 1fr 320px;
+    .by-autopark-description {
+      @media all and (max-width: $md) {
+        display: grid;
+      }
+    }
     .by-description-text {
+      @media all and (max-width: $md) {
+        display: grid;
+        grid-row: 1;
+      }
       grid-column: 1;
       grid-row: 2;
       font-size: var(--desc-font-size);
-      color: var(--primary-color-text);
+      color: var(--primary-color-title);
       font-weight: normal;
       margin-right: var(--medium-margin);
+      max-height: 9.4em;
+      line-height: 1.2em;
+      overflow: hidden;
+      transition: max-height 0.5s;
     }
     .by-btn {
+      @media all and (max-width: $md) {
+        --by-btn-font-size: 1rem;
+        justify-self: center;;
+      }
       margin-top: 1rem;
       --by-btn-font-size: 0.8125em;
     }
   }
 
   .App-consult {
+    @media all and (max-width: $md) {
+      display:none;
+    }
     grid-column: 2;
     display: grid;
     align-content: flex-start;
