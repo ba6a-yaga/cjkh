@@ -10,7 +10,10 @@
   }
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: 226px 175px 226px;
+  grid-template-rows: minmax(226px, 1fr) 175px minmax(226px, 1fr);
+  align-content: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
   grid-gap: 22px;
   
   > :nth-child(5n + 1) {
