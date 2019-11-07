@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/webapp-cjkh-frontend/static/css/main.6a6792c9.chunk.css",
+    "main.css": "/webapp-cjkh-frontend/static/css/main.72e3d7f5.chunk.css",
     "main.js": "/webapp-cjkh-frontend/static/js/main.467841ae.chunk.js",
     "main.js.map": "/webapp-cjkh-frontend/static/js/main.467841ae.chunk.js.map",
     "runtime-main.js": "/webapp-cjkh-frontend/static/js/runtime-main.0f9cd02e.js",
@@ -8,9 +8,9 @@
     "static/js/2.a2726108.chunk.js": "/webapp-cjkh-frontend/static/js/2.a2726108.chunk.js",
     "static/js/2.a2726108.chunk.js.map": "/webapp-cjkh-frontend/static/js/2.a2726108.chunk.js.map",
     "index.html": "/webapp-cjkh-frontend/index.html",
-    "precache-manifest.d46093ee8d061fd7465048648a8ddb9d.js": "/webapp-cjkh-frontend/precache-manifest.d46093ee8d061fd7465048648a8ddb9d.js",
+    "precache-manifest.d11f9649fcbc26d576d60d89bd250e80.js": "/webapp-cjkh-frontend/precache-manifest.d11f9649fcbc26d576d60d89bd250e80.js",
     "service-worker.js": "/webapp-cjkh-frontend/service-worker.js",
-    "static/css/main.6a6792c9.chunk.css.map": "/webapp-cjkh-frontend/static/css/main.6a6792c9.chunk.css.map",
+    "static/css/main.72e3d7f5.chunk.css.map": "/webapp-cjkh-frontend/static/css/main.72e3d7f5.chunk.css.map",
     "static/media/App.scss": "/webapp-cjkh-frontend/static/media/Seravek.d7cd9825.eot",
     "static/media/banner.png": "/webapp-cjkh-frontend/static/media/banner.807f94bc.png",
     "static/media/feedback-example.png": "/webapp-cjkh-frontend/static/media/feedback-example.848e7571.png",
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.0f9cd02e.js",
     "static/js/2.a2726108.chunk.js",
-    "static/css/main.6a6792c9.chunk.css",
+    "static/css/main.72e3d7f5.chunk.css",
     "static/js/main.467841ae.chunk.js"
   ]
 }
