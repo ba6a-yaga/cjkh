@@ -14,10 +14,16 @@ class Popup extends React.Component {
     super(props);
     this.el = document.createElement('div');
   }
+   getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
 
   componentDidMount() {
     modalRoot.appendChild(this.el);
     this.show()
+    let size = this.getScrollbarWidth()
+    document.body.style.setProperty("--scroll-width", `${size}px`)
+    document.body.classList.add("modal-open")
   }
 
   componentWillUnmount() {
@@ -31,9 +37,11 @@ class Popup extends React.Component {
     this.setState({isVisible: false})
     if (this.props.animation) {
       setTimeout(() => {
+        document.body.classList.remove("modal-open")
         this.props.onHide()
       },250)
     } else {
+      document.body.classList.remove("modal-open")
         this.props.onHide()
     }
   }

@@ -101,7 +101,6 @@ class Form extends React.Component {
   }
     getInput(item) {
       let onInputChange = (e) => {this.onInputChange(e, item)}
-      console.log(this.state[item.name])
       let value = this.state[item.name]
       let placeholder = item.placeholder
       
